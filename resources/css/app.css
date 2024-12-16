@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .gradient-overlay {
+        @apply before:pointer-events-none before:absolute before:left-0 before:top-0 before:z-[5] before:block before:h-1/4 before:w-full before:bg-gradient-to-b before:from-black/20 before:to-transparent after:pointer-events-none after:absolute after:bottom-0 after:left-0 after:z-[5] after:block after:h-1/4 after:w-full after:bg-gradient-to-t after:from-black/20 after:to-transparent;
+    }
+}
