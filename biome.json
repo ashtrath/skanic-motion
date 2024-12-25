@@ -61,6 +61,7 @@
                 "noUnsafeOptionalChaining": "error",
                 "noUnusedLabels": "error",
                 "noUnusedVariables": "error",
+                "noUnusedImports": "error",
                 "useArrayLiterals": "off",
                 "useExhaustiveDependencies": "warn",
                 "useHookAtTopLevel": "error",
@@ -73,7 +74,8 @@
             "style": {
                 "noNamespace": "error",
                 "useAsConstAssertion": "error",
-                "useBlockStatements": "off"
+                "useBlockStatements": "off",
+                "useImportType": "error"
             },
             "suspicious": {
                 "noAssignInExpressions": "error",
