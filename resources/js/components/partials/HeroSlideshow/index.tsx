@@ -6,7 +6,7 @@ import {
     CarouselPrevious,
 } from '@/components/ui/carousel'
 import { cn } from '@/lib/utils'
-import { SlideshowData } from '@/types'
+import type { SlideshowData } from '@/types'
 import {
     SiFacebook,
     SiInstagram,

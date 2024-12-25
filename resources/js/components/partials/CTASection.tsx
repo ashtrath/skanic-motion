@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 import { motion, useScroll, useTransform } from 'motion/react'
-import { ReactNode, useRef } from 'react'
+import { type ReactNode, useRef } from 'react'
 
 interface CTASectionProps {
     className?: string

@@ -1,5 +1,5 @@
 import { Link } from '@inertiajs/react'
-import { ArrowRight, LucideIcon } from 'lucide-react'
+import { ArrowRight, type LucideIcon } from 'lucide-react'
 
 interface ServiceCardProps {
     icon: LucideIcon | string

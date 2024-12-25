@@ -1,6 +1,6 @@
 import { CarouselItem } from '@/components/ui/carousel'
 import { cn } from '@/lib/utils'
-import { SlideshowData } from '@/types'
+import type { SlideshowData } from '@/types'
 import { useCallback, useState } from 'react'
 
 const PLACEHOLDER_SRC = `data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D`
