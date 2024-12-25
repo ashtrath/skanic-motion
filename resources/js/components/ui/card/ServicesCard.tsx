@@ -1,11 +1,11 @@
-import { Link } from '@inertiajs/react';
-import { ArrowRight, LucideIcon } from 'lucide-react';
+import { Link } from '@inertiajs/react'
+import { ArrowRight, LucideIcon } from 'lucide-react'
 
 interface ServiceCardProps {
-    icon: LucideIcon | string;
-    title: string;
-    description: string;
-    href: string;
+    icon: LucideIcon | string
+    title: string
+    description: string
+    href: string
 }
 
 export default function ServicesCard({
@@ -22,7 +22,7 @@ export default function ServicesCard({
                         <Icon className="size-8 stroke-1 text-background" />
                     </div>
                 </div>
-                <h3 className="mt-8 whitespace-nowrap font-display text-3xl font-medium">
+                <h3 className="mt-8 whitespace-nowrap font-display font-medium text-3xl">
                     {title}
                 </h3>
                 <p className="mt-4">{description}</p>
@@ -35,5 +35,5 @@ export default function ServicesCard({
                 <ArrowRight className="size-6 transition-transform duration-200 ease-out group-hover:translate-x-1" />
             </Link>
         </div>
-    );
+    )
 }

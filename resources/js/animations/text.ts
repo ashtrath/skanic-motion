@@ -7,4 +7,4 @@ export const text = {
         opacity: 0.75,
         transition: { duration: 1, delay: 0.2 },
     },
-};
+}

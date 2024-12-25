@@ -1,6 +1,6 @@
 interface ApplicationLogoProps {
-    mainColorClass?: string;
-    accentColorClass?: string;
+    mainColorClass?: string
+    accentColorClass?: string
 }
 
 export default function ApplicationLogo({
@@ -33,5 +33,5 @@ export default function ApplicationLogo({
                 className={mainColorClass ?? 'fill-primary'}
             />
         </svg>
-    );
+    )
 }

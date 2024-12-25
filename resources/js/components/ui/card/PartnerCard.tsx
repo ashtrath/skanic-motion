@@ -1,7 +1,7 @@
 interface PartnerCardProps {
-    name: string;
-    image: string;
-    link?: string;
+    name: string
+    image: string
+    link?: string
 }
 
 export default function PartnerCard({ name, image, link }: PartnerCardProps) {
@@ -24,11 +24,11 @@ export default function PartnerCard({ name, image, link }: PartnerCardProps) {
 
             <div className="absolute inset-0 flex origin-bottom scale-y-0 items-center justify-center bg-foreground transition-all duration-700 ease-[cubic-bezier(.77,0,.175,1)] group-hover:scale-y-100">
                 <a href={link}>
-                    <h5 className="translate-y-4 text-lg font-bold text-background opacity-0 transition-all duration-[480ms] ease-[cubic-bezier(.77,0,.175,1)] group-hover:translate-y-0 group-hover:opacity-100 group-hover:delay-200">
+                    <h5 className="translate-y-4 font-bold text-background text-lg opacity-0 transition-all duration-[480ms] ease-[cubic-bezier(.77,0,.175,1)] group-hover:translate-y-0 group-hover:opacity-100 group-hover:delay-200">
                         {name}
                     </h5>
                 </a>
             </div>
         </div>
-    );
+    )
 }

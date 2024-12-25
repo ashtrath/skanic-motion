@@ -1,3 +1,3 @@
-export * from './layoutSlideUp';
-export * from './loaderSlideUp';
-export * from './text';
+export * from './layoutSlideUp'
+export * from './loaderSlideUp'
+export * from './text'

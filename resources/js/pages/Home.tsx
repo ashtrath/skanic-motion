@@ -1,19 +1,19 @@
-import GeneralLayout from '@/components/layouts/GeneralLayout';
-import CTASection from '@/components/partials/CTASection';
-import HeroSlideshow from '@/components/partials/HeroSlideshow';
-import { Button } from '@/components/ui/button';
-import PartnerCard from '@/components/ui/card/PartnerCard';
-import ServicesCard from '@/components/ui/card/ServicesCard';
-import { CarouselItem } from '@/components/ui/carousel';
-import Magnet from '@/components/ui/magnet';
+import GeneralLayout from '@/components/layouts/GeneralLayout'
+import CTASection from '@/components/partials/CTASection'
+import HeroSlideshow from '@/components/partials/HeroSlideshow'
+import { Button } from '@/components/ui/button'
+import PartnerCard from '@/components/ui/card/PartnerCard'
+import ServicesCard from '@/components/ui/card/ServicesCard'
+import { CarouselItem } from '@/components/ui/carousel'
+import Magnet from '@/components/ui/magnet'
 import {
     SiFacebook,
     SiInstagram,
     SiLinkedin,
-} from '@icons-pack/react-simple-icons';
-import { Head, Link } from '@inertiajs/react';
-import { Box, Brush, ChevronRight, Clapperboard, Frame } from 'lucide-react';
-import { ReactNode } from 'react';
+} from '@icons-pack/react-simple-icons'
+import { Head, Link } from '@inertiajs/react'
+import { Box, Brush, ChevronRight, Clapperboard, Frame } from 'lucide-react'
+import { ReactNode } from 'react'
 
 const Home = () => {
     return (
@@ -58,7 +58,7 @@ const Home = () => {
                 <div className="space-y-8">
                     <p className="ml-1 uppercase tracking-[2px]">About Us</p>
                     <div className="max-w-xl space-y-6">
-                        <h2 className="font-display text-5xl font-bold">
+                        <h2 className="font-bold font-display text-5xl">
                             <span className="text-primary">
                                 SKANI<span className="text-accent">C</span>{' '}
                                 Motion
@@ -88,7 +88,7 @@ const Home = () => {
                 </div>
                 <div>
                     <img
-                        src="/storage/images/Decorator.png"
+                        src="/storage/images/Decorator.webp"
                         alt="Image Decoration"
                         className="w-full max-w-3xl opacity-30"
                     />
@@ -99,7 +99,7 @@ const Home = () => {
                 image="/storage/images/ContactCTA.jpg"
                 className="flex flex-col justify-center gap-6"
             >
-                <h2 className="font-display text-5xl font-bold text-background">
+                <h2 className="font-bold font-display text-5xl text-background">
                     Got a <span className="text-accent">Story</span> to Tell?
                     <br />
                     Let's Make It Move!
@@ -119,7 +119,7 @@ const Home = () => {
                         <PartnerCard
                             key={i}
                             name="Lazada"
-                            image="Lazada.png"
+                            image="Lazada.webp"
                             link="#"
                         />
                     ))}
@@ -129,7 +129,7 @@ const Home = () => {
                         Folks we've partnered with
                     </p>
                     <div className="max-w-lg space-y-6">
-                        <h2 className="font-display text-5xl font-bold">
+                        <h2 className="font-bold font-display text-5xl">
                             Our Animation Studio Clients
                         </h2>
                         <p className="text-pretty text-muted [&_a]:font-medium [&_a]:text-primary hover:[&_a]:underline">
@@ -155,7 +155,7 @@ const Home = () => {
                 className="flex flex-col items-end justify-center"
             >
                 <div className="space-y-6">
-                    <h2 className="font-display text-5xl font-bold text-background">
+                    <h2 className="font-bold font-display text-5xl text-background">
                         Find Your Animation
                         <br />
                         Secret Weapon Here!
@@ -174,7 +174,7 @@ const Home = () => {
                 <div className="space-y-8 self-start">
                     <p className="ml-1 uppercase tracking-[2px]">Services</p>
                     <div className="max-w-sm space-y-6">
-                        <h2 className="font-display text-5xl font-bold">
+                        <h2 className="font-bold font-display text-5xl">
                             <span className="text-primary">
                                 SKANI<span className="text-accent">C</span>{' '}
                                 Motion
@@ -229,29 +229,29 @@ const Home = () => {
                 <div className="space-y-8 self-start">
                     <p className="ml-1 uppercase tracking-[2px]">Contact Us</p>
                     <div className="max-w-sm space-y-6">
-                        <h2 className="font-display text-5xl font-bold">
+                        <h2 className="font-bold font-display text-5xl">
                             Get in Touch.
                         </h2>
                         <div className="space-y-3">
-                            <h3 className="text-lg font-bold">Address</h3>
+                            <h3 className="font-bold text-lg">Address</h3>
                             <address className="not-italic">
                                 SMKN 1 Ciomas, Laladon, Kec. Ciomas, Kabupaten
                                 Bogor, Jawa Barat 16610
                             </address>
                         </div>
                         <div className="space-y-3">
-                            <h3 className="text-lg font-bold">Contact Us</h3>
+                            <h3 className="font-bold text-lg">Contact Us</h3>
                             <a
                                 href="mailto:animasi.smkn1ciomas@gmail.com"
                                 className="group block font-medium text-primary"
                             >
-                                <span className="bg-gradient-to-r from-current to-current bg-[length:0%_2px] bg-left-bottom bg-no-repeat pb-0.5 transition-all duration-300 ease-out group-hover:bg-[length:100%_2px]">
+                                <span className="bg-[length:0%_2px] bg-gradient-to-r bg-left-bottom from-current to-current bg-no-repeat pb-0.5 transition-all duration-300 ease-out group-hover:bg-[length:100%_2px]">
                                     animasi.smkn1ciomas@gmail.com
                                 </span>
                             </a>
                         </div>
                         <div className="space-y-3">
-                            <h3 className="text-lg font-bold">Follow Us</h3>
+                            <h3 className="font-bold text-lg">Follow Us</h3>
                             <div className="flex gap-4">
                                 <a className="flex size-12 items-center justify-center rounded-full border border-foreground/50 text-foreground transition-colors duration-200 ease-out hover:text-primary">
                                     <SiFacebook className="size-5" />
@@ -275,28 +275,28 @@ const Home = () => {
                         Your name
                         <input
                             type="text"
-                            className="mt-0 w-full border-0 border-b border-gray-400 bg-transparent px-0 py-3 text-lg font-medium transition-[border] duration-300 ease-out focus:border-black focus:ring-0"
+                            className="mt-0 w-full border-0 border-gray-400 border-b bg-transparent px-0 py-3 font-medium text-lg transition-[border] duration-300 ease-out focus:border-black focus:ring-0"
                         />
                     </label>
                     <label>
                         Your email
                         <input
                             type="email"
-                            className="mt-0 w-full border-0 border-b border-gray-400 bg-transparent px-0 py-3 text-lg font-medium transition-[border] duration-300 ease-out focus:border-black focus:ring-0"
+                            className="mt-0 w-full border-0 border-gray-400 border-b bg-transparent px-0 py-3 font-medium text-lg transition-[border] duration-300 ease-out focus:border-black focus:ring-0"
                         />
                     </label>
                     <label>
                         Subject
                         <input
                             type="text"
-                            className="mt-0 w-full border-0 border-b border-gray-400 bg-transparent px-0 py-3 text-lg font-medium transition-[border] duration-300 ease-out focus:border-black focus:ring-0"
+                            className="mt-0 w-full border-0 border-gray-400 border-b bg-transparent px-0 py-3 font-medium text-lg transition-[border] duration-300 ease-out focus:border-black focus:ring-0"
                         />
                     </label>
                     <label>
                         Your message (optional)
                         <textarea
                             rows={5}
-                            className="mt-0 w-full border-0 border-b border-gray-400 bg-transparent px-0 py-3 text-lg font-medium transition-[border] duration-300 ease-out focus:border-black focus:ring-0"
+                            className="mt-0 w-full border-0 border-gray-400 border-b bg-transparent px-0 py-3 font-medium text-lg transition-[border] duration-300 ease-out focus:border-black focus:ring-0"
                         ></textarea>
                     </label>
                     <Button
@@ -309,9 +309,9 @@ const Home = () => {
                 </form>
             </section>
         </>
-    );
-};
+    )
+}
 
-Home.layout = (page: ReactNode) => <GeneralLayout>{page}</GeneralLayout>;
+Home.layout = (page: ReactNode) => <GeneralLayout>{page}</GeneralLayout>
 
-export default Home;
+export default Home

@@ -1,5 +1,5 @@
-import GeneralLayout from '@/components/layouts/GeneralLayout';
-import { Head } from '@inertiajs/react';
+import GeneralLayout from '@/components/layouts/GeneralLayout'
+import { Head } from '@inertiajs/react'
 
 export default function Portfolio() {
     return (
@@ -13,5 +13,5 @@ export default function Portfolio() {
                 className="min-h-screen bg-foreground"
             ></section>
         </GeneralLayout>
-    );
+    )
 }

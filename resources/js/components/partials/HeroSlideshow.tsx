@@ -4,45 +4,45 @@ import {
     CarouselContent,
     CarouselNext,
     CarouselPrevious,
-} from '@/components/ui/carousel';
-import { cn } from '@/lib/utils';
+} from '@/components/ui/carousel'
+import { cn } from '@/lib/utils'
 import {
     SiFacebook,
     SiInstagram,
     SiTiktok,
-} from '@icons-pack/react-simple-icons';
-import { motion, useScroll, useTransform } from 'motion/react';
-import { ReactNode, useEffect, useState } from 'react';
+} from '@icons-pack/react-simple-icons'
+import { motion, useScroll, useTransform } from 'motion/react'
+import { ReactNode, useEffect, useState } from 'react'
 
 interface HeroSlideshowProps {
-    children?: ReactNode;
+    children?: ReactNode
 }
 
 export default function HeroSlideshow({ children }: HeroSlideshowProps) {
-    const [api, setApi] = useState<CarouselApi>();
-    const [current, setCurrent] = useState(0);
-    const [count, setCount] = useState(0);
+    const [api, setApi] = useState<CarouselApi>()
+    const [current, setCurrent] = useState(0)
+    const [count, setCount] = useState(0)
 
     useEffect(() => {
-        if (!api) return;
+        if (!api) return
 
         const updateState = () => {
-            setCount(api.scrollSnapList().length);
-            setCurrent(api.selectedScrollSnap() + 1);
-        };
-        updateState();
+            setCount(api.scrollSnapList().length)
+            setCurrent(api.selectedScrollSnap() + 1)
+        }
+        updateState()
 
-        api.on('select', updateState);
+        api.on('select', updateState)
         return () => {
-            api.off('select', updateState);
-        };
-    }, [api]);
+            api.off('select', updateState)
+        }
+    }, [api])
 
     const { scrollYProgress } = useScroll({
         offset: ['start start', 'end start'],
-    });
+    })
 
-    const y = useTransform(scrollYProgress, [0, 1], ['0vh', '150vh']);
+    const y = useTransform(scrollYProgress, [0, 1], ['0vh', '150vh'])
 
     return (
         <Carousel
@@ -84,7 +84,7 @@ export default function HeroSlideshow({ children }: HeroSlideshowProps) {
                             </a>
                         </li>
                     </ul>
-                    <div className="space-y-0.5 text-center font-display uppercase tracking-[2px] text-background">
+                    <div className="space-y-0.5 text-center font-display text-background uppercase tracking-[2px]">
                         <h1 className="font-bold">Tegar Beri Iman 2</h1>
                         <p className="text-sm">2024</p>
                     </div>
@@ -107,5 +107,5 @@ export default function HeroSlideshow({ children }: HeroSlideshowProps) {
                 </div>
             </div>
         </Carousel>
-    );
+    )
 }

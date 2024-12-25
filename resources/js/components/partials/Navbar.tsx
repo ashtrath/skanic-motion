@@ -1,23 +1,23 @@
-import { cn } from '@/lib/utils';
-import { Link } from '@inertiajs/react';
-import { useEffect, useState } from 'react';
-import ApplicationLogo from '../ui/ApplicationLogo';
+import { cn } from '@/lib/utils'
+import { Link } from '@inertiajs/react'
+import { useEffect, useState } from 'react'
+import ApplicationLogo from '../ui/ApplicationLogo'
 
 export default function Navbar() {
-    const [isScrolled, setIsScrolled] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false)
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => setIsScrolled(!entry.isIntersecting),
             { threshold: 0.8 },
-        );
-        const heroElement = document.getElementById('hero');
-        if (heroElement) observer.observe(heroElement);
+        )
+        const heroElement = document.getElementById('hero')
+        if (heroElement) observer.observe(heroElement)
 
         return () => {
-            if (heroElement) observer.unobserve(heroElement);
-        };
-    }, []);
+            if (heroElement) observer.unobserve(heroElement)
+        }
+    }, [])
 
     const routes = [
         {
@@ -45,14 +45,14 @@ export default function Navbar() {
             route: '#',
             active: false,
         },
-    ];
+    ]
 
     return (
         <header className="fixed inset-0 z-50 h-min">
             <div className="relative flex h-32 w-full items-center p-5 pb-10">
                 <div
                     className={cn(
-                        'absolute inset-0 z-[1] bg-transparent bg-[radial-gradient(transparent_1px,_#fffafa66_1px)] bg-[size:4px_4px] backdrop-blur-sm transition-opacity duration-150 ease-in-out',
+                        'absolute inset-0 z-[1] bg-[radial-gradient(transparent_1px,_#fffafa66_1px)] bg-[size:4px_4px] bg-transparent backdrop-blur-sm transition-opacity duration-150 ease-in-out',
                         isScrolled ? 'opacity-100' : 'opacity-0',
                     )}
                     style={{
@@ -86,7 +86,7 @@ export default function Navbar() {
                             >
                                 <span
                                     className={cn(
-                                        'bg-gradient-to-r from-current to-current bg-[length:0%_2px] bg-left-bottom bg-no-repeat transition-all duration-300 ease-out group-hover:bg-[length:100%_2px]',
+                                        'bg-[length:0%_2px] bg-gradient-to-r bg-left-bottom from-current to-current bg-no-repeat transition-all duration-300 ease-out group-hover:bg-[length:100%_2px]',
                                         active && 'bg-[length:100%_2px]',
                                     )}
                                 >
@@ -98,5 +98,5 @@ export default function Navbar() {
                 </nav>
             </div>
         </header>
-    );
+    )
 }
