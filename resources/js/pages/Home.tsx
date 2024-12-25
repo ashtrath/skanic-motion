@@ -4,8 +4,8 @@ import HeroSlideshow from '@/components/partials/HeroSlideshow'
 import { Button } from '@/components/ui/button'
 import PartnerCard from '@/components/ui/card/PartnerCard'
 import ServicesCard from '@/components/ui/card/ServicesCard'
-import { CarouselItem } from '@/components/ui/carousel'
 import Magnet from '@/components/ui/magnet'
+import { SlideshowData } from '@/types'
 import {
     SiFacebook,
     SiInstagram,
@@ -15,6 +15,33 @@ import { Head, Link } from '@inertiajs/react'
 import { Box, Brush, ChevronRight, Clapperboard, Frame } from 'lucide-react'
 import { ReactNode } from 'react'
 
+const SLIDESHOW_DATA: SlideshowData[] = [
+    {
+        title: "Tegar Beri Iman 1",
+        year: "2023",
+        src: "https://lh3.googleusercontent.com/fife/ALs6j_EqBiWL_WaXD-p-YvH8z79CtmkG3hpw7Ryc9tBKIdzZxB0ZmVQg39cUOOBPSdL4ONLvswwf2o7X9CnuA88lA8uh2w-86oDjHOoNwiwK-kzR7Zo-dfDPOxVOOchVN-V06RUTuubskJCMG-qF3K8gG_6mr4NFrbx3Z5t0DSDtxiVQanNs2dKujuzNy18V_T_yFoSM-sI7ysloEJtba_rtNmYD2HY6ojI-uBuycC3HuHhWuOhJCjaYKWpoBZ2iLslrgLcHTaUnPvp212favWu9cQu8BXSy68pBZKaWp3irJw9D5c9RDqlwswaINwFWgRTa0hHgHkuNx-68CjJf3fQWovq1tQ3IOhxmPQXB8UCsIdgbmj-ROpNmwy2jjyYYSn2eduI6HX3gPaeD9pNVDxTi2txCZsU03N68M3tsRxXfSEm1nQhR6grLTSv-M0acXdxWWgHbCxHBL-jHy6yYRj9LswqM_erGzHk4bqd7kHjdRTi_rOHE0eJ7WCBezvu-293QD9HfAmUZeiRdXwraEGDKwBExwtdycrcKbKg02mIsjrfxlD9ML0nQIBgYEpnWRC6NgZSaqd3_uTT3sOHfuLu9nGv3UBhL0iCsBJq8CPm5v8NHYXcmZ29o217ThHAatXJ1O5HBSlCaAQdjo1IlFkaZSL8bwbBYBuFwG8C3UfI7d1HVKebaczPqXHQQWSXwzep0bAq2PbDMB72qX-LSjrXLuzRty04Bx95eFfwixPbbRYdK7hrr7nDRkOD-15VnWHOQOey2CK3nbwNQCgKC2QBawFC0u7tLMST8olaJN8vIWXaswG7Bu3-Epn4ytjAIIi0pcwYUDXEqGKhwHEwdHbW3Sfd8dtYbc17ecHnwIzE291xv-aQgFHbWZ-G6lcdcDDcn5vDoiznVLjK4VY5gN19br1O5eqjYLmIFKfUkKOlBCq9jQarXvvrSooZWUwlXch-uaxxvaB25cSSX1B2X3hY1Y_y2O0k2WuteP3DLbIiaw2Z2FbtLPxywDIGAcpssz9nkeTb466a7XcWvLYrANwYRLoW_PUdYhvYAmP-PCNmwKeTy09n4w9bAZNISD5TH8anxiT15PuAPlw8GJ6_jLfPVPOfKUhiQZNtiQlXlhZUIHYKJgofV6JwwxvzUp-51pF4iXkB6El8BA99t_uM5P_tA3qV_sAqbyGd1hx_6SQhXNP1ZlLwbeVLUdLG778EDHwjfY0E2IDUW_IAk0dnnqNS5CQsCPIpL4lUfx_mPm0IJevQp_u7qITaTHeEGbXwVXKXaXEEWXDFI-EsEWy0hBrXCTbiWUKWk0ysM_UeZHIBwDXpLJaqhfOxGL9dXPClEMR4UM-A3AkUrw7pCyJy_Xi1rhXH8NM2tc9S4KGGiIs9lV94jx9IV-a_plnBky2S1dkcgFFJSy-K8JyF8bHPPRAWd2ZVYbhYeLksjfzxnpbfAEeuiKBEMCUPZwRa83fU3uKcZdWkYvVcx0NGmGju2-cf94l5MvOOCWdpAUYIEVEL2DeRGvHcY-04GRT6N4NN2KnHyrGmrs2SyiSXHiVpjSHM4vyVhT_ut7U_qopBOTbYlAYQD9axn6Os_BhVslrJXY8i0NrW0TlCuEQmupEN3ykIMNmZ8WpbMh4t9txBa-RNpEKKvdxkb7O4Y6QzfEfoKwQKTvdxrHfwipyuoAbnmgpGqBxiKanFKsdT-8MU0YDEadqhxTRIf-S3gE2Z4Np4rX5foppY1EarQdvNeLeA47nuhKl9No4Rwdq8iZebSByaUWyHr8YkdpqDnoq-uK8eSHDrpKp61Z-InfAFRhmcVtDVhoc4yhorlA-uoH1GYwz5eNKuUbnogCMYxWAlLJL7E_Jfzwb7xlWic_Enbow=w1920-h951",
+        fileType: "image",
+    },
+    {
+        title: "Tegar Beri Iman 2",
+        year: "2024",
+        src: "/storage/videos/Exterior.mp4",
+        fileType: "video",
+    },
+    {
+        title: "Tegar Beri Iman 3",
+        year: "2025",
+        src: "https://lh3.googleusercontent.com/fife/ALs6j_EqBiWL_WaXD-p-YvH8z79CtmkG3hpw7Ryc9tBKIdzZxB0ZmVQg39cUOOBPSdL4ONLvswwf2o7X9CnuA88lA8uh2w-86oDjHOoNwiwK-kzR7Zo-dfDPOxVOOchVN-V06RUTuubskJCMG-qF3K8gG_6mr4NFrbx3Z5t0DSDtxiVQanNs2dKujuzNy18V_T_yFoSM-sI7ysloEJtba_rtNmYD2HY6ojI-uBuycC3HuHhWuOhJCjaYKWpoBZ2iLslrgLcHTaUnPvp212favWu9cQu8BXSy68pBZKaWp3irJw9D5c9RDqlwswaINwFWgRTa0hHgHkuNx-68CjJf3fQWovq1tQ3IOhxmPQXB8UCsIdgbmj-ROpNmwy2jjyYYSn2eduI6HX3gPaeD9pNVDxTi2txCZsU03N68M3tsRxXfSEm1nQhR6grLTSv-M0acXdxWWgHbCxHBL-jHy6yYRj9LswqM_erGzHk4bqd7kHjdRTi_rOHE0eJ7WCBezvu-293QD9HfAmUZeiRdXwraEGDKwBExwtdycrcKbKg02mIsjrfxlD9ML0nQIBgYEpnWRC6NgZSaqd3_uTT3sOHfuLu9nGv3UBhL0iCsBJq8CPm5v8NHYXcmZ29o217ThHAatXJ1O5HBSlCaAQdjo1IlFkaZSL8bwbBYBuFwG8C3UfI7d1HVKebaczPqXHQQWSXwzep0bAq2PbDMB72qX-LSjrXLuzRty04Bx95eFfwixPbbRYdK7hrr7nDRkOD-15VnWHOQOey2CK3nbwNQCgKC2QBawFC0u7tLMST8olaJN8vIWXaswG7Bu3-Epn4ytjAIIi0pcwYUDXEqGKhwHEwdHbW3Sfd8dtYbc17ecHnwIzE291xv-aQgFHbWZ-G6lcdcDDcn5vDoiznVLjK4VY5gN19br1O5eqjYLmIFKfUkKOlBCq9jQarXvvrSooZWUwlXch-uaxxvaB25cSSX1B2X3hY1Y_y2O0k2WuteP3DLbIiaw2Z2FbtLPxywDIGAcpssz9nkeTb466a7XcWvLYrANwYRLoW_PUdYhvYAmP-PCNmwKeTy09n4w9bAZNISD5TH8anxiT15PuAPlw8GJ6_jLfPVPOfKUhiQZNtiQlXlhZUIHYKJgofV6JwwxvzUp-51pF4iXkB6El8BA99t_uM5P_tA3qV_sAqbyGd1hx_6SQhXNP1ZlLwbeVLUdLG778EDHwjfY0E2IDUW_IAk0dnnqNS5CQsCPIpL4lUfx_mPm0IJevQp_u7qITaTHeEGbXwVXKXaXEEWXDFI-EsEWy0hBrXCTbiWUKWk0ysM_UeZHIBwDXpLJaqhfOxGL9dXPClEMR4UM-A3AkUrw7pCyJy_Xi1rhXH8NM2tc9S4KGGiIs9lV94jx9IV-a_plnBky2S1dkcgFFJSy-K8JyF8bHPPRAWd2ZVYbhYeLksjfzxnpbfAEeuiKBEMCUPZwRa83fU3uKcZdWkYvVcx0NGmGju2-cf94l5MvOOCWdpAUYIEVEL2DeRGvHcY-04GRT6N4NN2KnHyrGmrs2SyiSXHiVpjSHM4vyVhT_ut7U_qopBOTbYlAYQD9axn6Os_BhVslrJXY8i0NrW0TlCuEQmupEN3ykIMNmZ8WpbMh4t9txBa-RNpEKKvdxkb7O4Y6QzfEfoKwQKTvdxrHfwipyuoAbnmgpGqBxiKanFKsdT-8MU0YDEadqhxTRIf-S3gE2Z4Np4rX5foppY1EarQdvNeLeA47nuhKl9No4Rwdq8iZebSByaUWyHr8YkdpqDnoq-uK8eSHDrpKp61Z-InfAFRhmcVtDVhoc4yhorlA-uoH1GYwz5eNKuUbnogCMYxWAlLJL7E_Jfzwb7xlWic_Enbow=w1920-h951",
+        fileType: "image",
+    },
+    {
+        title: "Tegar Beri Iman 4",
+        year: "2026",
+        src: "/storage/videos/Beach.mp4",
+        fileType: "video",
+    },
+]
+
 const Home = () => {
     return (
         <>
@@ -23,32 +50,7 @@ const Home = () => {
             </Head>
 
             <section id="hero" className="flex h-screen w-full justify-center">
-                <HeroSlideshow>
-                    <CarouselItem className="pl-0">
-                        <img
-                            src="https://lh3.googleusercontent.com/fife/ALs6j_EqBiWL_WaXD-p-YvH8z79CtmkG3hpw7Ryc9tBKIdzZxB0ZmVQg39cUOOBPSdL4ONLvswwf2o7X9CnuA88lA8uh2w-86oDjHOoNwiwK-kzR7Zo-dfDPOxVOOchVN-V06RUTuubskJCMG-qF3K8gG_6mr4NFrbx3Z5t0DSDtxiVQanNs2dKujuzNy18V_T_yFoSM-sI7ysloEJtba_rtNmYD2HY6ojI-uBuycC3HuHhWuOhJCjaYKWpoBZ2iLslrgLcHTaUnPvp212favWu9cQu8BXSy68pBZKaWp3irJw9D5c9RDqlwswaINwFWgRTa0hHgHkuNx-68CjJf3fQWovq1tQ3IOhxmPQXB8UCsIdgbmj-ROpNmwy2jjyYYSn2eduI6HX3gPaeD9pNVDxTi2txCZsU03N68M3tsRxXfSEm1nQhR6grLTSv-M0acXdxWWgHbCxHBL-jHy6yYRj9LswqM_erGzHk4bqd7kHjdRTi_rOHE0eJ7WCBezvu-293QD9HfAmUZeiRdXwraEGDKwBExwtdycrcKbKg02mIsjrfxlD9ML0nQIBgYEpnWRC6NgZSaqd3_uTT3sOHfuLu9nGv3UBhL0iCsBJq8CPm5v8NHYXcmZ29o217ThHAatXJ1O5HBSlCaAQdjo1IlFkaZSL8bwbBYBuFwG8C3UfI7d1HVKebaczPqXHQQWSXwzep0bAq2PbDMB72qX-LSjrXLuzRty04Bx95eFfwixPbbRYdK7hrr7nDRkOD-15VnWHOQOey2CK3nbwNQCgKC2QBawFC0u7tLMST8olaJN8vIWXaswG7Bu3-Epn4ytjAIIi0pcwYUDXEqGKhwHEwdHbW3Sfd8dtYbc17ecHnwIzE291xv-aQgFHbWZ-G6lcdcDDcn5vDoiznVLjK4VY5gN19br1O5eqjYLmIFKfUkKOlBCq9jQarXvvrSooZWUwlXch-uaxxvaB25cSSX1B2X3hY1Y_y2O0k2WuteP3DLbIiaw2Z2FbtLPxywDIGAcpssz9nkeTb466a7XcWvLYrANwYRLoW_PUdYhvYAmP-PCNmwKeTy09n4w9bAZNISD5TH8anxiT15PuAPlw8GJ6_jLfPVPOfKUhiQZNtiQlXlhZUIHYKJgofV6JwwxvzUp-51pF4iXkB6El8BA99t_uM5P_tA3qV_sAqbyGd1hx_6SQhXNP1ZlLwbeVLUdLG778EDHwjfY0E2IDUW_IAk0dnnqNS5CQsCPIpL4lUfx_mPm0IJevQp_u7qITaTHeEGbXwVXKXaXEEWXDFI-EsEWy0hBrXCTbiWUKWk0ysM_UeZHIBwDXpLJaqhfOxGL9dXPClEMR4UM-A3AkUrw7pCyJy_Xi1rhXH8NM2tc9S4KGGiIs9lV94jx9IV-a_plnBky2S1dkcgFFJSy-K8JyF8bHPPRAWd2ZVYbhYeLksjfzxnpbfAEeuiKBEMCUPZwRa83fU3uKcZdWkYvVcx0NGmGju2-cf94l5MvOOCWdpAUYIEVEL2DeRGvHcY-04GRT6N4NN2KnHyrGmrs2SyiSXHiVpjSHM4vyVhT_ut7U_qopBOTbYlAYQD9axn6Os_BhVslrJXY8i0NrW0TlCuEQmupEN3ykIMNmZ8WpbMh4t9txBa-RNpEKKvdxkb7O4Y6QzfEfoKwQKTvdxrHfwipyuoAbnmgpGqBxiKanFKsdT-8MU0YDEadqhxTRIf-S3gE2Z4Np4rX5foppY1EarQdvNeLeA47nuhKl9No4Rwdq8iZebSByaUWyHr8YkdpqDnoq-uK8eSHDrpKp61Z-InfAFRhmcVtDVhoc4yhorlA-uoH1GYwz5eNKuUbnogCMYxWAlLJL7E_Jfzwb7xlWic_Enbow=w1920-h951"
-                            className="h-screen w-full object-cover"
-                        />
-                    </CarouselItem>
-                    <CarouselItem className="pl-0">
-                        <img
-                            src="https://g-44neyour3vw.vusercontent.net/placeholder.svg"
-                            className="h-screen w-full object-cover"
-                        />
-                    </CarouselItem>
-                    <CarouselItem className="pl-0">
-                        <img
-                            src="https://lh3.googleusercontent.com/fife/ALs6j_EqBiWL_WaXD-p-YvH8z79CtmkG3hpw7Ryc9tBKIdzZxB0ZmVQg39cUOOBPSdL4ONLvswwf2o7X9CnuA88lA8uh2w-86oDjHOoNwiwK-kzR7Zo-dfDPOxVOOchVN-V06RUTuubskJCMG-qF3K8gG_6mr4NFrbx3Z5t0DSDtxiVQanNs2dKujuzNy18V_T_yFoSM-sI7ysloEJtba_rtNmYD2HY6ojI-uBuycC3HuHhWuOhJCjaYKWpoBZ2iLslrgLcHTaUnPvp212favWu9cQu8BXSy68pBZKaWp3irJw9D5c9RDqlwswaINwFWgRTa0hHgHkuNx-68CjJf3fQWovq1tQ3IOhxmPQXB8UCsIdgbmj-ROpNmwy2jjyYYSn2eduI6HX3gPaeD9pNVDxTi2txCZsU03N68M3tsRxXfSEm1nQhR6grLTSv-M0acXdxWWgHbCxHBL-jHy6yYRj9LswqM_erGzHk4bqd7kHjdRTi_rOHE0eJ7WCBezvu-293QD9HfAmUZeiRdXwraEGDKwBExwtdycrcKbKg02mIsjrfxlD9ML0nQIBgYEpnWRC6NgZSaqd3_uTT3sOHfuLu9nGv3UBhL0iCsBJq8CPm5v8NHYXcmZ29o217ThHAatXJ1O5HBSlCaAQdjo1IlFkaZSL8bwbBYBuFwG8C3UfI7d1HVKebaczPqXHQQWSXwzep0bAq2PbDMB72qX-LSjrXLuzRty04Bx95eFfwixPbbRYdK7hrr7nDRkOD-15VnWHOQOey2CK3nbwNQCgKC2QBawFC0u7tLMST8olaJN8vIWXaswG7Bu3-Epn4ytjAIIi0pcwYUDXEqGKhwHEwdHbW3Sfd8dtYbc17ecHnwIzE291xv-aQgFHbWZ-G6lcdcDDcn5vDoiznVLjK4VY5gN19br1O5eqjYLmIFKfUkKOlBCq9jQarXvvrSooZWUwlXch-uaxxvaB25cSSX1B2X3hY1Y_y2O0k2WuteP3DLbIiaw2Z2FbtLPxywDIGAcpssz9nkeTb466a7XcWvLYrANwYRLoW_PUdYhvYAmP-PCNmwKeTy09n4w9bAZNISD5TH8anxiT15PuAPlw8GJ6_jLfPVPOfKUhiQZNtiQlXlhZUIHYKJgofV6JwwxvzUp-51pF4iXkB6El8BA99t_uM5P_tA3qV_sAqbyGd1hx_6SQhXNP1ZlLwbeVLUdLG778EDHwjfY0E2IDUW_IAk0dnnqNS5CQsCPIpL4lUfx_mPm0IJevQp_u7qITaTHeEGbXwVXKXaXEEWXDFI-EsEWy0hBrXCTbiWUKWk0ysM_UeZHIBwDXpLJaqhfOxGL9dXPClEMR4UM-A3AkUrw7pCyJy_Xi1rhXH8NM2tc9S4KGGiIs9lV94jx9IV-a_plnBky2S1dkcgFFJSy-K8JyF8bHPPRAWd2ZVYbhYeLksjfzxnpbfAEeuiKBEMCUPZwRa83fU3uKcZdWkYvVcx0NGmGju2-cf94l5MvOOCWdpAUYIEVEL2DeRGvHcY-04GRT6N4NN2KnHyrGmrs2SyiSXHiVpjSHM4vyVhT_ut7U_qopBOTbYlAYQD9axn6Os_BhVslrJXY8i0NrW0TlCuEQmupEN3ykIMNmZ8WpbMh4t9txBa-RNpEKKvdxkb7O4Y6QzfEfoKwQKTvdxrHfwipyuoAbnmgpGqBxiKanFKsdT-8MU0YDEadqhxTRIf-S3gE2Z4Np4rX5foppY1EarQdvNeLeA47nuhKl9No4Rwdq8iZebSByaUWyHr8YkdpqDnoq-uK8eSHDrpKp61Z-InfAFRhmcVtDVhoc4yhorlA-uoH1GYwz5eNKuUbnogCMYxWAlLJL7E_Jfzwb7xlWic_Enbow=w1920-h951"
-                            className="h-screen w-full object-cover"
-                        />
-                    </CarouselItem>
-                    <CarouselItem className="pl-0">
-                        <img
-                            src="https://g-44neyour3vw.vusercontent.net/placeholder.svg"
-                            className="h-screen w-full object-cover"
-                        />
-                    </CarouselItem>
-                </HeroSlideshow>
+                <HeroSlideshow items={SLIDESHOW_DATA} />
             </section>
 
             <section

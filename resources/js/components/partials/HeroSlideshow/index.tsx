@@ -6,37 +6,53 @@ import {
     CarouselPrevious,
 } from '@/components/ui/carousel'
 import { cn } from '@/lib/utils'
+import { SlideshowData } from '@/types'
 import {
     SiFacebook,
     SiInstagram,
     SiTiktok,
 } from '@icons-pack/react-simple-icons'
 import { motion, useScroll, useTransform } from 'motion/react'
-import { ReactNode, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import LazyLoadCarousel from './LazyLoadCarousel'
 
 interface HeroSlideshowProps {
-    children?: ReactNode
+    items: SlideshowData[]
 }
 
-export default function HeroSlideshow({ children }: HeroSlideshowProps) {
-    const [api, setApi] = useState<CarouselApi>()
+export default function HeroSlideshow({ items }: HeroSlideshowProps) {
+    const [api, setApi] = useState<CarouselApi | null>(null)
     const [current, setCurrent] = useState(0)
-    const [count, setCount] = useState(0)
+    const [slidesInView, setSlidesInView] = useState<Set<number>>(new Set())
+
+    const updateSlidesInView = useCallback((api: CarouselApi) => {
+        const inViewSlides = api?.slidesInView()
+        setSlidesInView((prev) => {
+            const updatedSet = new Set(prev)
+            inViewSlides?.forEach((index) => updatedSet.add(index))
+            return updatedSet
+        })
+    }, [])
 
     useEffect(() => {
         if (!api) return
 
-        const updateState = () => {
-            setCount(api.scrollSnapList().length)
-            setCurrent(api.selectedScrollSnap() + 1)
+        const updateCurrentSlide = () => {
+            setCurrent(api.selectedScrollSnap())
         }
-        updateState()
 
-        api.on('select', updateState)
+        updateCurrentSlide()
+        updateSlidesInView(api)
+
+        api.on('slidesInView', updateSlidesInView)
+        api.on('reInit', () => updateSlidesInView(api))
+        api.on('select', updateCurrentSlide)
         return () => {
-            api.off('select', updateState)
+            api.off('slidesInView', updateSlidesInView)
+            api.off('reInit', updateSlidesInView)
+            api.off('select', updateCurrentSlide)
         }
-    }, [api])
+    }, [api, updateSlidesInView])
 
     const { scrollYProgress } = useScroll({
         offset: ['start start', 'end start'],
@@ -51,7 +67,17 @@ export default function HeroSlideshow({ children }: HeroSlideshowProps) {
             className="gradient-overlay relative h-screen w-full overflow-hidden"
         >
             <motion.div style={{ y }} className="relative size-full">
-                <CarouselContent className="-ml-0">{children}</CarouselContent>
+                <CarouselContent className="-ml-0">
+                    {items.map((item, index) => (
+                        <LazyLoadCarousel
+                            key={index}
+                            index={index}
+                            src={item.src}
+                            fileType={item.fileType}
+                            inView={slidesInView.has(index)}
+                        />
+                    ))}
+                </CarouselContent>
             </motion.div>
             <div className="pointer-events-none absolute bottom-6 left-0 w-full space-y-4">
                 <div className="container flex items-center justify-between">
@@ -85,8 +111,8 @@ export default function HeroSlideshow({ children }: HeroSlideshowProps) {
                         </li>
                     </ul>
                     <div className="space-y-0.5 text-center font-display text-background uppercase tracking-[2px]">
-                        <h1 className="font-bold">Tegar Beri Iman 2</h1>
-                        <p className="text-sm">2024</p>
+                        <h1 className="font-bold">{items[current]?.title}</h1>
+                        <p className="text-sm">{items[current]?.year}</p>
                     </div>
                     <div className="pointer-events-auto flex items-center gap-8">
                         <CarouselPrevious className="size-16 border-background bg-transparent text-background hover:bg-background hover:text-foreground [&_svg]:size-8 [&_svg]:stroke-1" />
@@ -94,14 +120,14 @@ export default function HeroSlideshow({ children }: HeroSlideshowProps) {
                     </div>
                 </div>
                 <div className="pointer-events-auto mx-auto flex max-w-sm items-center justify-center gap-4">
-                    {new Array(count).fill(null).map((_, index) => (
+                    {items.map((_, index) => (
                         <button
                             key={index}
                             className={cn(
                                 'h-[3px] flex-grow bg-white/50 p-0',
-                                index + 1 === current ? 'bg-accent' : '',
+                                index === current ? 'bg-accent' : '',
                             )}
-                            onClick={() => api && api.scrollTo(index)}
+                            onClick={() => api?.scrollTo(index)}
                         />
                     ))}
                 </div>
