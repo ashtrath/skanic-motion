@@ -1,5 +1,5 @@
-import type { Plugin } from "payload";
+import type { Plugin } from "payload"
 
-const plugins: Plugin[] = [];
+const plugins: Plugin[] = []
 
-export default plugins;
+export default plugins
