@@ -1,11 +1,10 @@
-// storage-adapter-import-placeholder
+import path from "node:path"
+import { fileURLToPath } from "node:url"
 import { postgresAdapter } from "@payloadcms/db-postgres"
 import { payloadCloudPlugin } from "@payloadcms/payload-cloud"
 import { lexicalEditor } from "@payloadcms/richtext-lexical"
-import path from "path"
 import { buildConfig } from "payload"
 import sharp from "sharp"
-import { fileURLToPath } from "url"
 
 import { Media } from "./collections/Media"
 import { Users } from "./collections/Users"
@@ -17,6 +16,7 @@ export default buildConfig({
     admin: {
         user: Users.slug,
         importMap: {
+            importMapFile: "src/app/admin/importMap.js",
             baseDir: path.resolve(dirname),
         },
     },
@@ -32,10 +32,7 @@ export default buildConfig({
         },
     }),
     sharp,
-    plugins: [
-        payloadCloudPlugin(),
-        // storage-adapter-placeholder
-    ],
+    plugins: [payloadCloudPlugin()],
     graphQL: {
         disable: true,
     },
