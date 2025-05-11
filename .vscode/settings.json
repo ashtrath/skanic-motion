@@ -1,4 +1,22 @@
 {
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+    "search.exclude": {
+        "package-lock.json": true
+    },
+
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "typescript.preferences.autoImportSpecifierExcludeRegexes": [
+        // useRouter should be imported from `next/navigation` instead of `next/router`
+        "next/router",
+        // give priority for Link to next/link instead of lucide-react
+        "lucide-react",
+        // Not used in the project and conflicts with `use()` from React
+        "chai"
+    ],
+    "typescript.preferences.preferTypeOnlyAutoImports": true,
+
     "npm.packageManager": "pnpm",
     "editor.defaultFormatter": "biomejs.biome",
     "[typescript]": {
@@ -31,7 +49,6 @@
         "editor.formatOnSave": true
     },
     "editor.formatOnSaveMode": "file",
-    "typescript.tsdk": "node_modules/typescript/lib",
     "[javascript][typescript][typescriptreact]": {
         "editor.codeActionsOnSave": {
             "source.fixAll.biome": "explicit"

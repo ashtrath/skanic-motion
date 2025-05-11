@@ -18,15 +18,23 @@
         "attributePosition": "auto",
         "expand": "auto"
     },
+    "javascript": {
+        "formatter": {
+            "quoteStyle": "double",
+            "jsxQuoteStyle": "double",
+            "trailingCommas": "all",
+            "arrowParentheses": "always",
+            "semicolons": "asNeeded"
+        }
+    },
     "linter": {
         "enabled": true,
+        "domains": {
+            "next": "recommended",
+            "react": "recommended"
+        },
         "rules": {
             "recommended": true,
-            "correctness": {
-                "useExhaustiveDependencies": "warn",
-                "useHookAtTopLevel": "error",
-                "noVoidElementsWithChildren": "error"
-            },
             "nursery": {
                 "useSortedClasses": {
                     "fix": "safe",
@@ -37,11 +45,7 @@
                 }
             },
             "style": {
-                "useLiteralEnumMembers": "error",
-                "noCommaOperator": "error",
-                "useNodejsImportProtocol": "error",
                 "useAsConstAssertion": "error",
-                "useNumericLiterals": "error",
                 "useEnumInitializers": "error",
                 "useSelfClosingElements": "error",
                 "useConst": "error",
@@ -49,37 +53,18 @@
                 "noUnusedTemplateLiteral": "error",
                 "useNumberNamespace": "error",
                 "noInferrableTypes": "error",
-                "useExponentiationOperator": "error",
-                "useTemplate": "error",
                 "noParameterAssign": "error",
-                "noNonNullAssertion": "error",
                 "useDefaultParameterLast": "error",
-                "noArguments": "error",
-                "useImportType": "error",
-                "useExportType": "error",
                 "noUselessElse": "error",
-                "useFragmentSyntax": "error",
-                "useShorthandFunctionType": "error"
+                "useFragmentSyntax": "error"
             }
         }
     },
-    "javascript": {
-        "formatter": {
-            "quoteStyle": "double",
-            "jsxQuoteStyle": "double",
-            "trailingCommas": "all",
-            "arrowParentheses": "always",
-            "semicolons": "asNeeded"
-        }
-    },
-    "html": { "formatter": { "selfCloseVoidElements": "always" } },
     "assist": {
         "enabled": true,
         "actions": {
             "source": {
-                "recommended": true,
-                "useSortedAttributes": "on",
-                "organizeImports": "on"
+                "recommended": true
             }
         }
     }
