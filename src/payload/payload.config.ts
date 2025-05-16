@@ -7,6 +7,7 @@ import sharp from "sharp"
 import { Categories } from "./collections/Categories"
 import { Clients } from "./collections/Clients"
 import { Media } from "./collections/Media"
+import { Pages } from "./collections/Pages"
 import { Projects } from "./collections/Projects"
 import { Users } from "./collections/Users"
 import { editor } from "./config/editor"
@@ -24,17 +25,9 @@ export default buildConfig({
             baseDir: path.resolve(dirname),
         },
     },
-    globals: [
-        LandingPage,
-    ],
-    collections: [
-        Users,
-        Media,
-        Clients,
-        Categories,
-        Projects,
-    ],
-    secret: process.env.PAYLOAD_SECRET || "",
+    globals: [LandingPage],
+    collections: [Users, Media, Pages, Clients, Categories, Projects],
+    secret: process.env.PAYLOAD_SECRET || " ",
     typescript: {
         outputFile: path.resolve(dirname, "payload-types.ts"),
     },
