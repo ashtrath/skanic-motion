@@ -12,5 +12,20 @@ export const Media: CollectionConfig = {
             required: true,
         },
     ],
-    upload: true,
+    upload: {
+        staticDir: "media",
+        adminThumbnail: "thumbnail",
+        mimeTypes: [
+            "image/jpeg",
+            "image/png",
+            "image/webp",
+            "video/*",
+        ],
+        formatOptions: {
+            format: "webp",
+            options: {
+                quality: 85,
+            },
+        },
+    },
 }

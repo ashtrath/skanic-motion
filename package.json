@@ -16,14 +16,19 @@
         "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
     },
     "dependencies": {
+        "@icons-pack/react-simple-icons": "^12.8.0",
         "@payloadcms/db-postgres": "3.33.0",
         "@payloadcms/next": "3.33.0",
         "@payloadcms/payload-cloud": "3.33.0",
+        "@payloadcms/plugin-seo": "3.33.0",
         "@payloadcms/richtext-lexical": "3.33.0",
+        "@payloadcms/ui": "3.33.0",
+        "@radix-ui/react-slot": "^1.2.2",
         "@tailwindcss/postcss": "^4.1.6",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "cross-env": "^7.0.3",
+        "embla-carousel-react": "^8.6.0",
         "graphql": "^16.8.1",
         "lucide-react": "^0.509.0",
         "next": "15.3.0",
@@ -33,7 +38,8 @@
         "react-dom": "19.1.0",
         "sharp": "0.32.6",
         "tailwind-merge": "^3.2.0",
-        "tailwindcss": "^4.1.6"
+        "tailwindcss": "^4.1.6",
+        "zustand": "^5.0.4"
     },
     "devDependencies": {
         "@biomejs/biome": "2.0.0-beta.3",
@@ -48,6 +54,8 @@
         "pnpm": "^9 || ^10"
     },
     "pnpm": {
-        "onlyBuiltDependencies": ["sharp"]
+        "onlyBuiltDependencies": [
+            "sharp"
+        ]
     }
 }

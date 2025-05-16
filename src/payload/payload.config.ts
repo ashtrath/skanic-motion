@@ -1,13 +1,17 @@
 import path from "node:path"
 import { fileURLToPath } from "node:url"
 import { postgresAdapter } from "@payloadcms/db-postgres"
-import { payloadCloudPlugin } from "@payloadcms/payload-cloud"
-import { lexicalEditor } from "@payloadcms/richtext-lexical"
 import { buildConfig } from "payload"
 import sharp from "sharp"
 
+import { Categories } from "./collections/Categories"
+import { Clients } from "./collections/Clients"
 import { Media } from "./collections/Media"
+import { Projects } from "./collections/Projects"
 import { Users } from "./collections/Users"
+import { editor } from "./config/editor"
+import { plugins } from "./config/plugins"
+import { LandingPage } from "./globals/LandingPage"
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -20,8 +24,16 @@ export default buildConfig({
             baseDir: path.resolve(dirname),
         },
     },
-    collections: [Users, Media],
-    editor: lexicalEditor(),
+    globals: [
+        LandingPage,
+    ],
+    collections: [
+        Users,
+        Media,
+        Clients,
+        Categories,
+        Projects,
+    ],
     secret: process.env.PAYLOAD_SECRET || "",
     typescript: {
         outputFile: path.resolve(dirname, "payload-types.ts"),
@@ -32,7 +44,8 @@ export default buildConfig({
         },
     }),
     sharp,
-    plugins: [payloadCloudPlugin()],
+    editor,
+    plugins,
     graphQL: {
         disable: true,
     },
