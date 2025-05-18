@@ -37,7 +37,7 @@ export default function HeroSlideshow({
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-                <div className="absolute inset-x-0 bottom-0 flex items-center px-16 py-8">
+                <div className="absolute inset-x-0 bottom-0 flex items-center px-22.5 py-8">
                     <nav className="flex w-1/2 justify-start gap-6">
                         <a
                             href="https://www.facebook.com/animasismkn1ciomas"
