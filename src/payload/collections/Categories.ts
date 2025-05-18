@@ -7,5 +7,5 @@ export const Categories: CollectionConfig<"categories"> = {
         group: "Portfolio",
         useAsTitle: "name",
     },
-    fields: [{ name: "name", type: "text", required: true }, SlugField("name")],
+    fields: [{ name: "name", type: "text", required: true }, ...SlugField("name")],
 }

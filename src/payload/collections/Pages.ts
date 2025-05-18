@@ -20,7 +20,7 @@ export const Pages: CollectionConfig<"pages"> = {
             type: "text",
             required: true,
         },
-        SlugField(),
+        ...SlugField(),
         {
             type: "tabs",
             tabs: [

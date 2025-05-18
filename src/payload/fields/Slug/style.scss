@@ -1,0 +1,29 @@
+.slug-field-component {
+    position: relative;
+
+    .container {
+        display: flex;
+    }
+
+    .field-type.text {
+        flex-grow: 1;
+    }
+
+    .checkbox-input {
+        position: absolute;
+        top: 49%;
+        right: 1rem;
+    }
+
+    .checkbox-input__input {
+        height: 2rem;
+        width: 2rem;
+
+        .checkbox-input__icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}

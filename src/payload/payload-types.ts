@@ -197,6 +197,7 @@ export interface Media {
 export interface Page {
   id: number;
   title: string;
+  slugLock?: boolean | null;
   slug?: string | null;
   layout?: RichTextBlock[] | null;
   meta?: {
@@ -253,6 +254,7 @@ export interface Client {
 export interface Category {
   id: number;
   name: string;
+  slugLock?: boolean | null;
   slug?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -264,6 +266,7 @@ export interface Category {
 export interface Project {
   id: number;
   title: string;
+  slugLock?: boolean | null;
   slug?: string | null;
   projectDate: string;
   projectType: (number | Category)[];
@@ -417,6 +420,7 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface PagesSelect<T extends boolean = true> {
   title?: T;
+  slugLock?: T;
   slug?: T;
   layout?:
     | T
@@ -459,6 +463,7 @@ export interface ClientsSelect<T extends boolean = true> {
  */
 export interface CategoriesSelect<T extends boolean = true> {
   name?: T;
+  slugLock?: T;
   slug?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -469,6 +474,7 @@ export interface CategoriesSelect<T extends boolean = true> {
  */
 export interface ProjectsSelect<T extends boolean = true> {
   title?: T;
+  slugLock?: T;
   slug?: T;
   projectDate?: T;
   projectType?: T;

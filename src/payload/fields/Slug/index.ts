@@ -1,26 +1,40 @@
-import type { TextField } from "payload"
+import type { CheckboxField, TextField } from "payload"
 import useSlug from "./useSlug"
+
+interface SlugFieldOverrides {
+    checkboxOverrides?: Partial<CheckboxField>
+    slugOverrides?: Partial<TextField>
+}
 
 export const SlugField = (
     fieldToUse: string | undefined = "title",
-    overrides: Partial<TextField> | undefined = {},
-): TextField => {
+    { checkboxOverrides, slugOverrides }: SlugFieldOverrides = {},
+): [CheckboxField, TextField] => {
+    const checkboxField: CheckboxField = {
+        name: "slugLock",
+        type: "checkbox",
+        admin: {
+            hidden: true,
+            position: "sidebar",
+        },
+        defaultValue: true,
+        ...checkboxOverrides,
+    }
+
     // @ts-expect-error - ts mismatch Partial<TextField> with TextField
-    const field: TextField = {
+    const slugField: TextField = {
         name: "slug",
         type: "text",
         index: true,
         unique: true,
         label: "Slug",
-        ...overrides,
+        ...slugOverrides,
         hooks: {
-            beforeValidate: [
-                useSlug(fieldToUse),
-            ],
+            beforeValidate: [useSlug(fieldToUse)],
         },
         admin: {
             position: "sidebar",
-            ...(overrides?.admin || {}),
+            ...(slugOverrides?.admin || {}),
             components: {
                 Field: {
                     path: "@/payload/fields/Slug/SlugComponent#SlugComponent",
@@ -32,5 +46,5 @@ export const SlugField = (
         },
     }
 
-    return field
+    return [checkboxField, slugField]
 }

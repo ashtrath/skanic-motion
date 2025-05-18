@@ -21,7 +21,7 @@ export const Projects: CollectionConfig<"projects"> = {
             type: "text",
             required: true,
         },
-        SlugField(),
+        ...SlugField(),
         {
             type: "tabs",
             tabs: [
