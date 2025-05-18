@@ -25,7 +25,6 @@ const queryLandingPage = cache(async () => {
     const payload = await getPayload({ config: config })
     const result = await payload.findGlobal({
         slug: "landing-page",
-        select: { id: true, layout: true, meta: true },
     })
 
     return result

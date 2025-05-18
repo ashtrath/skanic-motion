@@ -1,8 +1,10 @@
 import type { LandingPage } from "@/payload/payload-types"
+import ContentWithImage from "./landing-page/ContentWithImage"
 import HeroSlideshow from "./landing-page/HeroSlideshow"
 
 const BLOCK_COMPONENTS = {
     "hero-slideshow-block": HeroSlideshow,
+    "content-with-image-block": ContentWithImage,
     "rich-text-block": HeroSlideshow,
 }
 

@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 
 @theme inline {
     --font-display: var(--font-rubik), sans-serif;
@@ -101,6 +102,36 @@
 @layer base {
     * {
         @apply border-border outline-ring/50;
+    }
+}
+
+@utility prose {
+    --tw-prose-body: var(--color-foreground);
+    --tw-prose-headings: var(--color-foreground);
+    --tw-prose-bold: var(--color-foreground);
+    --tw-prose-quote-borders: var(--color-slate-300);
+    --tw-prose-quotes: var(--color-muted-foreground);
+    --tw-prose-code: var(--color-foreground);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-display);
+    }
+
+    code {
+        &::before,
+        &::after {
+            display: none;
+        }
+        text-wrap: nowrap;
+    }
+
+    blockquote {
+        font-weight: 400;
     }
 }
 

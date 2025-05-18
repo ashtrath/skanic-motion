@@ -8,6 +8,7 @@ import {
 import type { GlobalConfig } from "payload"
 
 import { RichTextBlock } from "../blocks/common/RichTextBlock"
+import { ContentWithImageBlock } from "../blocks/landing-page/ContentWithImageBlock"
 import { HeroSlideshowBlock } from "../blocks/landing-page/HeroSlideshowBlock"
 
 export const LandingPage: GlobalConfig<"landing-page"> = {
@@ -21,10 +22,14 @@ export const LandingPage: GlobalConfig<"landing-page"> = {
                     fields: [
                         {
                             name: "layout",
+                            labels: {
+                                plural: "Sections",
+                                singular: "Section",
+                            },
                             type: "blocks",
                             minRows: 1,
                             required: true,
-                            blocks: [HeroSlideshowBlock, RichTextBlock],
+                            blocks: [HeroSlideshowBlock, ContentWithImageBlock, RichTextBlock],
                             admin: {
                                 initCollapsed: true,
                             },

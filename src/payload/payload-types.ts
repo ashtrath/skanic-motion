@@ -527,7 +527,7 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface LandingPage {
   id: number;
-  layout: (HeroSlideshowBlock | RichTextBlock)[];
+  layout: (HeroSlideshowBlock | ContentWithImageBlock | RichTextBlock)[];
   meta?: {
     title?: string | null;
     /**
@@ -551,6 +551,53 @@ export interface HeroSlideshowBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContentWithImageBlock".
+ */
+export interface ContentWithImageBlock {
+  eyebrow?: string | null;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  image: number | Media;
+  imagePosition: 'right' | 'left';
+  ctaButton?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | ({
+                relationTo: 'pages';
+                value: number | Page;
+              } | null)
+            | ({
+                relationTo: 'projects';
+                value: number | Project;
+              } | null);
+          url?: string | null;
+          label: string;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'content-with-image-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "landing-page_select".
  */
 export interface LandingPageSelect<T extends boolean = true> {
@@ -558,6 +605,7 @@ export interface LandingPageSelect<T extends boolean = true> {
     | T
     | {
         'hero-slideshow-block'?: T | HeroSlideshowBlockSelect<T>;
+        'content-with-image-block'?: T | ContentWithImageBlockSelect<T>;
         'rich-text-block'?: T | RichTextBlockSelect<T>;
       };
   meta?:
@@ -588,6 +636,32 @@ export interface ProjectSlidesSelect<T extends boolean = true> {
   project?: T;
   coverImage?: T;
   id?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContentWithImageBlock_select".
+ */
+export interface ContentWithImageBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  content?: T;
+  image?: T;
+  imagePosition?: T;
+  ctaButton?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+            };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
