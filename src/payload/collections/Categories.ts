@@ -1,5 +1,5 @@
 import type { CollectionConfig } from "payload"
-import { SlugField } from "../fields/Slug"
+import { SlugField } from "../fields/slug"
 
 export const Categories: CollectionConfig<"categories"> = {
     slug: "categories",

@@ -7,7 +7,7 @@ import {
 } from "@payloadcms/plugin-seo/fields"
 import type { CollectionConfig } from "payload"
 import { RichTextBlock } from "../blocks/common/RichTextBlock"
-import { SlugField } from "../fields/Slug"
+import { SlugField } from "../fields/slug"
 
 export const Pages: CollectionConfig<"pages"> = {
     slug: "pages",
