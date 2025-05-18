@@ -103,3 +103,27 @@
         @apply border-border outline-ring/50;
     }
 }
+
+@utility vignette-edges {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(
+                to bottom in oklab,
+                oklab(0 0 0 / 0.2) 0%,
+                transparent 100%
+            ), linear-gradient(to top in oklab, oklab(0 0 0 / 0.2) 0%, transparent 100%);
+        background-repeat: no-repeat;
+        background-position:
+            top left,
+            bottom left;
+        background-size:
+            100% 20%,
+            100% 20%;
+        z-index: 1;
+        pointer-events: none;
+    }
+}

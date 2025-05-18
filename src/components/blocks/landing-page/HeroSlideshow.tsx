@@ -12,12 +12,20 @@ import Media from "@/components/ui/Media"
 import type { ProjectSlides } from "@/payload/payload-types"
 import HeroSlideshowClient from "./HeroSlideshow.client"
 
-export default function HeroSlideshow({ slides }: { slides: ProjectSlides }) {
+export default function HeroSlideshow({
+    id,
+    blockType,
+    slides,
+}: {
+    id: string
+    blockType: string
+    slides: ProjectSlides
+}) {
     return (
-        <section className="relative h-[100dvh] w-full overflow-hidden">
+        <section id={`${blockType}-${id}`} className="relative h-[100dvh] w-full overflow-hidden">
             <Carousel
                 opts={{ align: "start", loop: true }}
-                className="size-full [&>[data-slot=carousel-content]]:size-full"
+                className="vignette-edges size-full [&>[data-slot=carousel-content]]:size-full"
             >
                 <CarouselContent className="-ml-0 size-full">
                     {slides?.map((slide) => (
