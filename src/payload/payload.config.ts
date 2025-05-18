@@ -13,6 +13,7 @@ import { Users } from "./collections/Users"
 import { editor } from "./config/editor"
 import { plugins } from "./config/plugins"
 import { LandingPage } from "./globals/LandingPage"
+import { getServerSideURL } from "@/lib/utils/getUrl"
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -36,6 +37,7 @@ export default buildConfig({
             connectionString: process.env.DATABASE_URI || "",
         },
     }),
+    cors: [getServerSideURL()].filter(Boolean),
     sharp,
     editor,
     plugins,

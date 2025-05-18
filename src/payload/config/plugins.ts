@@ -1,7 +1,7 @@
 import { payloadCloudPlugin } from "@payloadcms/payload-cloud"
 import { seoPlugin } from "@payloadcms/plugin-seo"
 import type { GenerateTitle, GenerateURL } from "@payloadcms/plugin-seo/types"
-import type { Plugin } from "payload"
+import type { Config } from "payload"
 
 import { getServerSideURL } from "@/lib/utils/getUrl"
 
@@ -17,7 +17,7 @@ const generateURL: GenerateURL = ({ doc }) => {
     return doc?.slug ? `${url}/${doc.slug}` : url
 }
 
-export const plugins: Plugin[] = [
+export const plugins: Config["plugins"] = [
     payloadCloudPlugin(),
     seoPlugin({
         generateTitle,
