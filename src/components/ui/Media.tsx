@@ -1,5 +1,3 @@
-// "use client"
-
 import type { StaticImageData } from "next/image"
 import Image from "next/image"
 import { IMAGE_BREAKPOINTS, IMAGE_PLACEHOLDER } from "@/lib/constants"
@@ -33,7 +31,7 @@ function ImageMedia({
     fill,
     size,
     priority,
-    loading,
+    loading: loadingFromProps,
     ...props
 }: MediaProps) {
     let imageSrc: StaticImageData | string
@@ -57,6 +55,8 @@ function ImageMedia({
         console.error("Invalid media resource")
         return null
     }
+
+    const loading = loadingFromProps || (!priority ? "lazy" : undefined)
 
     // NOTE: this is used by the browser to determine which image to download at different screen sizes
     const sizes =
