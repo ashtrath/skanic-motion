@@ -99,6 +99,9 @@ importers:
       '@types/react-dom':
         specifier: 19.1.2
         version: 19.1.2(@types/react@19.1.0)
+      ts-plugin-sort-import-suggestions:
+        specifier: ^1.0.4
+        version: 1.0.4
       tw-animate-css:
         specifier: ^1.2.9
         version: 1.2.9
@@ -3148,6 +3151,9 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
+
+  ts-plugin-sort-import-suggestions@1.0.4:
+    resolution: {integrity: sha512-85n5lm2OQQ+b7aRNK9omU1gmjMNXRsgeLwojm5u4OSY5sVBkAHTcgMQPEeHMNlyyfFW0uXnwgqAU0pNfhD96Bw==}
 
   tslib@1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
@@ -6956,6 +6962,8 @@ snapshots:
   ts-essentials@10.0.3(typescript@5.7.3):
     optionalDependencies:
       typescript: 5.7.3
+
+  ts-plugin-sort-import-suggestions@1.0.4: {}
 
   tslib@1.14.1: {}
 
