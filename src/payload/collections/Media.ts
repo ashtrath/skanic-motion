@@ -1,9 +1,4 @@
-import path from "node:path"
-import { fileURLToPath } from "node:url"
 import type { CollectionConfig } from "payload"
-
-const filename = fileURLToPath(import.meta.url)
-const dirname = path.dirname(filename)
 
 export const Media: CollectionConfig = {
     slug: "media",
@@ -18,7 +13,7 @@ export const Media: CollectionConfig = {
         },
     ],
     upload: {
-        staticDir: path.resolve(dirname, "/public/media"),
+        staticDir: "public/media",
         adminThumbnail: "thumbnail",
         focalPoint: true,
         imageSizes: [
