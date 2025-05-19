@@ -1,8 +1,7 @@
 import { HeadingFeature, lexicalEditor } from "@payloadcms/richtext-lexical"
 import type { Block } from "payload"
 import { TextColorFeature } from "payload-lexical-typography"
-
-import { LinkGroupField } from "@/payload/fields/link/LinkGroup"
+import { LinkField } from "@/payload/fields/link"
 
 export const ContentWithImageBlock: Block = {
     slug: "content-with-image-block",
@@ -61,14 +60,21 @@ export const ContentWithImageBlock: Block = {
                 },
             ],
         },
-        LinkGroupField({
-            appearances: false,
-            overrides: {
-                name: "ctaButton",
-                label: "CTA Button",
-                labels: { plural: "Buttons", singular: "Button" },
-                maxRows: 1,
+        {
+            type: "collapsible",
+            label: "CTA Button",
+            admin: {
+                initCollapsed: true,
             },
-        }),
+            fields: [
+                LinkField({
+                    appearances: false,
+                    overrides: {
+                        name: "ctaButton",
+                        label: false,
+                    },
+                }),
+            ],
+        },
     ],
 }

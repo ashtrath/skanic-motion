@@ -580,26 +580,21 @@ export interface ContentWithImageBlock {
   };
   image: number | Media;
   imagePosition: 'right' | 'left';
-  ctaButton?:
-    | {
-        link: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?:
-            | ({
-                relationTo: 'pages';
-                value: number | Page;
-              } | null)
-            | ({
-                relationTo: 'projects';
-                value: number | Project;
-              } | null);
-          url?: string | null;
-          label: string;
-        };
-        id?: string | null;
-      }[]
-    | null;
+  ctaButton: {
+    type?: ('reference' | 'custom') | null;
+    newTab?: boolean | null;
+    reference?:
+      | ({
+          relationTo: 'pages';
+          value: number | Page;
+        } | null)
+      | ({
+          relationTo: 'projects';
+          value: number | Project;
+        } | null);
+    url?: string | null;
+    label: string;
+  };
   id?: string | null;
   blockName?: string | null;
   blockType: 'content-with-image-block';
@@ -657,16 +652,33 @@ export interface ContentWithImageBlockSelect<T extends boolean = true> {
   ctaButton?:
     | T
     | {
-        link?:
-          | T
-          | {
-              type?: T;
-              newTab?: T;
-              reference?: T;
-              url?: T;
-              label?: T;
-            };
-        id?: T;
+        type?: T;
+        newTab?: T;
+        reference?: T;
+        url?: T;
+        label?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CallToActionBlock_select".
+ */
+export interface CallToActionBlockSelect<T extends boolean = true> {
+  heading?: T;
+  headingAlignment?: T;
+  image?: T;
+  overlayColor?: T;
+  colorOpacity?: T;
+  ctaButton?:
+    | T
+    | {
+        type?: T;
+        newTab?: T;
+        reference?: T;
+        url?: T;
+        label?: T;
       };
   id?: T;
   blockName?: T;
