@@ -232,8 +232,8 @@ function CarouselIndicator({ className, ...props }: React.ComponentProps<"div">)
                     key={i}
                     type="button"
                     className={cn(
-                        "h-[3px] flex-grow cursor-pointer bg-white/50 p-0 transition-colors",
-                        i === currentSlide ? "bg-primary" : "bg-white/50",
+                        "h-[3px] flex-grow cursor-pointer rounded-full bg-white/50 p-0 transition-colors",
+                        i === currentSlide ? "bg-destructive" : "bg-white/50",
                     )}
                     aria-label={`Go to slide ${i + 1}`}
                     onClick={() => api?.scrollTo(i)}
