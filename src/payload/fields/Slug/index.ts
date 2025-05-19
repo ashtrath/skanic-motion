@@ -21,7 +21,6 @@ export const SlugField = (
         ...checkboxOverrides,
     }
 
-    // @ts-expect-error - ts mismatch Partial<TextField> with TextField
     const slugField: TextField = {
         name: "slug",
         type: "text",
@@ -37,14 +36,14 @@ export const SlugField = (
             ...(slugOverrides?.admin || {}),
             components: {
                 Field: {
-                    path: "@/payload/fields/Slug/SlugComponent#SlugComponent",
+                    path: "@/payload/fields/slug/SlugComponent#SlugComponent",
                     clientProps: {
                         fieldToUse,
                     },
                 },
             },
         },
-    }
+    } as TextField
 
     return [checkboxField, slugField]
 }

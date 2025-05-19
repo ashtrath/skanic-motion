@@ -1,0 +1,15 @@
+.color-picker-field-component {
+    .container  {
+        display: flex;
+        gap: 16px;
+        
+        .field-type.text {
+            flex-grow: 1;
+        }
+        
+        input[type="color"]  {
+            width: 40px;
+            height: 40px;
+        }
+    }
+}
