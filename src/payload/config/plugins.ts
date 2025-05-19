@@ -2,6 +2,7 @@ import { payloadCloudPlugin } from "@payloadcms/payload-cloud"
 import { seoPlugin } from "@payloadcms/plugin-seo"
 import type { GenerateTitle, GenerateURL } from "@payloadcms/plugin-seo/types"
 import type { Config } from "payload"
+import computeBlurhash from 'payload-blurhash-plugin';
 
 import { getServerSideURL } from "@/lib/utils/getUrl"
 
@@ -19,6 +20,7 @@ const generateURL: GenerateURL = ({ doc }) => {
 
 export const plugins: Config["plugins"] = [
     payloadCloudPlugin(),
+    computeBlurhash(),
     seoPlugin({
         generateTitle,
         generateURL,

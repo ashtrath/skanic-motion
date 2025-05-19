@@ -35,6 +35,9 @@ importers:
       '@tailwindcss/postcss':
         specifier: ^4.1.6
         version: 4.1.6
+      blurhash-base64:
+        specifier: ^0.0.3
+        version: 0.0.3
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -59,6 +62,9 @@ importers:
       payload:
         specifier: 3.33.0
         version: 3.33.0(graphql@16.11.0)(typescript@5.7.3)
+      payload-blurhash-plugin:
+        specifier: ^3.1.0
+        version: 3.1.0(sharp@0.32.6)
       payload-lexical-typography:
         specifier: ^0.4.0
         version: 0.4.0(c3bd3feada14cea9df0150e12bd854e9)
@@ -1718,6 +1724,9 @@ packages:
     resolution: {integrity: sha512-Cg7TFGpIr01vOQNODXOOaGz2NpCU5gl8x1qJFbb6hbZxR7XrcE2vtbAsTAbJ7/xwJtUuJEw8K8Zr/AE0LHlesg==}
     engines: {node: '>=10', npm: '>=6'}
 
+  balanced-match@1.0.2:
+    resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
+
   bare-events@2.5.4:
     resolution: {integrity: sha512-+gFfDkR8pj4/TrWCGUGWmJIkBwuxPS5F+a5yWjOHQt2hHvNZd5YLzadjmDUtFmMM4y429bnKLa8bYBMHcYdnQA==}
 
@@ -1758,11 +1767,20 @@ packages:
   bl@4.1.0:
     resolution: {integrity: sha512-1W07cM9gS6DcLperZfFSj+bWLtaPGSOHWhPiGzXmvVJbRLdG82sH/Kn8EtW1VqWVA54AKf2h5k5BbnIbwF3h6w==}
 
+  blurhash-base64@0.0.3:
+    resolution: {integrity: sha512-9cK+r4IZ73Bn6ee2ukHhURAkYX/aMvpHzuZHAe+y0mPqc2rsjpUwHBAv0HHHaOkeneQF+Odt1Qfps2K1wm7r5w==}
+
+  blurhash@2.0.5:
+    resolution: {integrity: sha512-cRygWd7kGBQO3VEhPiTgq4Wc43ctsM+o46urrmPOiuAe+07fzlSB9OJVdpgDL0jPqXUVQ9ht7aq7kxOeJHRK+w==}
+
   body-scroll-lock@4.0.0-beta.0:
     resolution: {integrity: sha512-a7tP5+0Mw3YlUJcGAKUqIBkYYGlYxk2fnCasq/FUph1hadxlTRjF+gAcZksxANnaMnALjxEddmSi/H3OR8ugcQ==}
 
   bowser@2.11.0:
     resolution: {integrity: sha512-AlcaJBi/pqqJBIQ8U9Mcpc9i8Aqxn88Skv5d+xBX006BY5u8N3mGLHa5Lgppa7L/HfwgwLgZ6NYs+Ag6uUmJRA==}
+
+  brace-expansion@2.0.1:
+    resolution: {integrity: sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==}
 
   braces@3.0.3:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
@@ -2548,6 +2566,10 @@ packages:
     resolution: {integrity: sha512-z0yWI+4FDrrweS8Zmt4Ej5HdJmky15+L2e6Wgn3+iK5fWzb6T3fhNFq2+MeTRb064c6Wr4N/wv0DzQTjNzHNGQ==}
     engines: {node: '>=10'}
 
+  minimatch@10.0.1:
+    resolution: {integrity: sha512-ethXTt3SGGR+95gudmqJ1eNhRO7eGEGIgYA9vnPatK4/etz2MEVDno5GMCibdMTuBMyElzIlgxMna3K94XDIDQ==}
+    engines: {node: 20 || >=22}
+
   minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
 
@@ -2670,6 +2692,12 @@ packages:
   path-type@4.0.0:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
+
+  payload-blurhash-plugin@3.1.0:
+    resolution: {integrity: sha512-D+bwWVmVzV3C/X419a0NPrY/5njhbU7s42LfqRjLaTzVumaQ1sPgXhAEkhOXqd44M1eElWKid0JTBh+XqZkHsQ==}
+    engines: {node: ^18.20.2 || >=20.9.0}
+    peerDependencies:
+      sharp: 0.x
 
   payload-lexical-typography@0.4.0:
     resolution: {integrity: sha512-3vWia5wrzebdR1uh1rdIBuedGtl1lyI702QNHOZrWvPfc6fnUDKZ34Pe/Rm75ZNUVfP3C6qTFhYdCCMJSJ/g0g==}
@@ -3284,6 +3312,9 @@ packages:
   yjs@13.6.26:
     resolution: {integrity: sha512-wiARO3wixu7mtoRP5f7LqpUtsURP9SmNgXUt3RlnZg4qDuF7dUjthwIvwxIDmK55dPw4Wl4QdW5A3ag0atwu7g==}
     engines: {node: '>=16.0.0', npm: '>=8.0.0'}
+
+  zod@3.25.3:
+    resolution: {integrity: sha512-VGZqnyYNrl8JpEJRZaFPqeVNIuqgXNu4cXZ5cOb6zEUO1OxKbRnWB4UdDIXMmiERWncs0yDQukssHov8JUxykQ==}
 
   zustand@5.0.4:
     resolution: {integrity: sha512-39VFTN5InDtMd28ZhjLyuTnlytDr9HfwO512Ai4I8ZABCoyAj4F1+sr7sD1jP/+p7k77Iko0Pb5NhgBFDCX0kQ==}
@@ -5436,6 +5467,8 @@ snapshots:
       cosmiconfig: 7.1.0
       resolve: 1.22.10
 
+  balanced-match@1.0.2: {}
+
   bare-events@2.5.4:
     optional: true
 
@@ -5471,9 +5504,19 @@ snapshots:
       inherits: 2.0.4
       readable-stream: 3.6.2
 
+  blurhash-base64@0.0.3:
+    dependencies:
+      blurhash: 2.0.5
+
+  blurhash@2.0.5: {}
+
   body-scroll-lock@4.0.0-beta.0: {}
 
   bowser@2.11.0: {}
+
+  brace-expansion@2.0.1:
+    dependencies:
+      balanced-match: 1.0.2
 
   braces@3.0.3:
     dependencies:
@@ -6283,6 +6326,10 @@ snapshots:
 
   mimic-response@3.1.0: {}
 
+  minimatch@10.0.1:
+    dependencies:
+      brace-expansion: 2.0.1
+
   minimist@1.2.8: {}
 
   minipass@7.1.2: {}
@@ -6385,6 +6432,13 @@ snapshots:
   path-to-regexp@6.3.0: {}
 
   path-type@4.0.0: {}
+
+  payload-blurhash-plugin@3.1.0(sharp@0.32.6):
+    dependencies:
+      blurhash: 2.0.5
+      minimatch: 10.0.1
+      sharp: 0.32.6
+      zod: 3.25.3
 
   payload-lexical-typography@0.4.0(c3bd3feada14cea9df0150e12bd854e9):
     dependencies:
@@ -7068,6 +7122,8 @@ snapshots:
   yjs@13.6.26:
     dependencies:
       lib0: 0.2.108
+
+  zod@3.25.3: {}
 
   zustand@5.0.4(@types/react@19.1.0)(react@19.1.0):
     optionalDependencies:

@@ -1,10 +1,11 @@
-import type { StaticImageData } from "next/image"
-import Image from "next/image"
-import { IMAGE_BREAKPOINTS, IMAGE_PLACEHOLDER } from "@/lib/constants"
+import type { Media as MediaType } from "@/payload/payload-types"
+import { blurhashToBase64 } from "blurhash-base64"
+import Image, { type StaticImageData } from "next/image"
+
+import { IMAGE_BREAKPOINTS } from "@/lib/constants"
 import { cn } from "@/lib/utils/cn"
 import { getClientSideURL } from "@/lib/utils/getUrl"
 import { isMedia } from "@/lib/utils/isMedia"
-import type { Media as MediaType } from "@/payload/payload-types"
 
 interface MediaProps {
     resource?: MediaType | number // for Payload media
@@ -31,13 +32,14 @@ function ImageMedia({
     fill,
     size,
     priority,
-    loading: loadingFromProps,
+    loading,
     ...props
 }: MediaProps) {
     let imageSrc: StaticImageData | string
     let imageAlt: string
     let imageWidth: number | undefined
     let imageHeight: number | undefined
+    let blurHash: string | undefined
 
     if (staticSrc) {
         imageSrc = staticSrc
@@ -51,12 +53,11 @@ function ImageMedia({
         imageAlt = propAlt || resource.alt || ""
         imageWidth = resource.width || undefined
         imageHeight = resource.height || undefined
+        blurHash = resource.blurhash ? blurhashToBase64(resource.blurhash) : undefined
     } else {
         console.error("Invalid media resource")
         return null
     }
-
-    const loading = loadingFromProps || (!priority ? "lazy" : undefined)
 
     // NOTE: this is used by the browser to determine which image to download at different screen sizes
     const sizes =
@@ -66,8 +67,6 @@ function ImageMedia({
             .map(([, value]) => `(max-width: ${value}px) ${Math.min(value * 2, 2880)}px`)
             .join(", ")
 
-    const blurDataURL = typeof imageSrc !== "string" ? imageSrc.blurDataURL : IMAGE_PLACEHOLDER
-
     return (
         <picture>
             <Image
@@ -76,10 +75,10 @@ function ImageMedia({
                 width={!fill ? imageWidth : undefined}
                 height={!fill ? imageHeight : undefined}
                 sizes={sizes}
-                placeholder="blur"
-                blurDataURL={blurDataURL}
+                placeholder={blurHash ? "blur" : undefined}
+                blurDataURL={blurHash || undefined}
                 priority={priority}
-                loading={loading}
+                loading={loading || (!priority ? "lazy" : undefined)}
                 {...props}
             />
         </picture>

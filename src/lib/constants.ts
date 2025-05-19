@@ -6,6 +6,3 @@ export const IMAGE_BREAKPOINTS = {
     md: 768,
     sm: 640,
 }
-
-export const IMAGE_PLACEHOLDER =
-    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOsa2yqBwAFCAICLICSyQAAAABJRU5ErkJggg=="
