@@ -1,3 +1,4 @@
+import type { LucideIcon } from "lucide-react"
 import Link from "next/link"
 import type * as React from "react"
 import { Button, type ButtonProps } from "@/components/ui/Button"
@@ -6,6 +7,8 @@ import type { Page, Project } from "@/payload/payload-types"
 
 type CMSLinkType = {
     appearance?: "inline" | ButtonProps["variant"]
+    icon?: LucideIcon
+    effect?: ButtonProps["effect"]
     children?: React.ReactNode
     className?: string
     label?: string | null
@@ -23,6 +26,8 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
     const {
         type,
         appearance = "inline",
+        icon,
+        effect,
         children,
         className,
         label,
@@ -55,8 +60,15 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
     }
 
     return (
-        <Button asChild className={className} size={size} variant={appearance}>
-            <Link className={cn(className)} href={href || url || ""} {...newTabProps}>
+        <Button
+            asChild
+            size={size}
+            variant={appearance}
+            icon={icon}
+            effect={effect}
+            className={className}
+        >
+            <Link href={href || url || ""} {...newTabProps}>
                 {label && label}
                 {children && children}
             </Link>

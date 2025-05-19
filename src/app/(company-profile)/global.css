@@ -52,9 +52,23 @@
     --shadow-lg: var(--shadow-lg);
     --shadow-xl: var(--shadow-xl);
     --shadow-2xl: var(--shadow-2xl);
+
+    --animate-shine: shine 3s ease-out infinite;
+
+    @keyframes shine {
+        0% {
+            background-position: 200% 0;
+        }
+        25% {
+            background-position: -200% 0;
+        }
+        100% {
+            background-position: -200% 0;
+        }
+    }
 }
 :root {
-    --radius: 0.175rem;
+    --radius: 0.4rem;
 
     --background: oklch(0.99 0.01 17.25);
     --foreground: oklch(0.19 0 0);
