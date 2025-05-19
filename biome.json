@@ -6,7 +6,7 @@
         "useIgnoreFile": true
     },
     "files": {
-        "includes": ["**", "!**/payload-types.ts"],
+        "includes": ["!**/payload-types.ts"],
         "ignoreUnknown": false
     },
     "formatter": {
