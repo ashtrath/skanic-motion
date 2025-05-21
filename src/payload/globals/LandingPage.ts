@@ -8,6 +8,7 @@ import {
 import type { GlobalConfig } from "payload"
 
 import { RichTextBlock } from "../blocks/common/RichTextBlock"
+import { CallToActionBlock } from "../blocks/landing-page/CallToActionBlock"
 import { ContentWithImageBlock } from "../blocks/landing-page/ContentWithImageBlock"
 import { HeroSlideshowBlock } from "../blocks/landing-page/HeroSlideshowBlock"
 
@@ -29,7 +30,12 @@ export const LandingPage: GlobalConfig<"landing-page"> = {
                             type: "blocks",
                             minRows: 1,
                             required: true,
-                            blocks: [HeroSlideshowBlock, ContentWithImageBlock, RichTextBlock],
+                            blocks: [
+                                HeroSlideshowBlock,
+                                ContentWithImageBlock,
+                                CallToActionBlock,
+                                RichTextBlock,
+                            ],
                             admin: {
                                 initCollapsed: true,
                             },

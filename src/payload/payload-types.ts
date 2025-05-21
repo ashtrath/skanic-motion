@@ -535,7 +535,7 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface LandingPage {
   id: number;
-  layout: (HeroSlideshowBlock | ContentWithImageBlock | RichTextBlock)[];
+  layout: (HeroSlideshowBlock | ContentWithImageBlock | CallToActionBlock | RichTextBlock)[];
   meta?: {
     title?: string | null;
     /**
@@ -601,6 +601,50 @@ export interface ContentWithImageBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CallToActionBlock".
+ */
+export interface CallToActionBlock {
+  text: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  alignment: 'left' | 'center' | 'right';
+  image: number | Media;
+  enableSeparator?: boolean | null;
+  overlayColor: string;
+  colorOpacity: number;
+  ctaButton: {
+    type?: ('reference' | 'custom') | null;
+    newTab?: boolean | null;
+    reference?:
+      | ({
+          relationTo: 'pages';
+          value: number | Page;
+        } | null)
+      | ({
+          relationTo: 'projects';
+          value: number | Project;
+        } | null);
+    url?: string | null;
+    label: string;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'call-to-action-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "landing-page_select".
  */
 export interface LandingPageSelect<T extends boolean = true> {
@@ -609,6 +653,7 @@ export interface LandingPageSelect<T extends boolean = true> {
     | {
         'hero-slideshow-block'?: T | HeroSlideshowBlockSelect<T>;
         'content-with-image-block'?: T | ContentWithImageBlockSelect<T>;
+        'call-to-action-block'?: T | CallToActionBlockSelect<T>;
         'rich-text-block'?: T | RichTextBlockSelect<T>;
       };
   meta?:
@@ -666,9 +711,10 @@ export interface ContentWithImageBlockSelect<T extends boolean = true> {
  * via the `definition` "CallToActionBlock_select".
  */
 export interface CallToActionBlockSelect<T extends boolean = true> {
-  heading?: T;
-  headingAlignment?: T;
+  text?: T;
+  alignment?: T;
   image?: T;
+  enableSeparator?: T;
   overlayColor?: T;
   colorOpacity?: T;
   ctaButton?:
