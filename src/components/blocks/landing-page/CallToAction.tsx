@@ -13,13 +13,13 @@ export default function CallToAction({ id, blockType, ...props }: CallToActionBl
             id={`${blockType}-${id}`}
             className={cn(
                 "relative flex h-[526px] items-center justify-start bg-center bg-cover px-22.5",
-                props.alignment === "center" && "justify-center",
-                props.alignment === "right" && "justify-end",
+                props.alignment === "center" && "justify-center text-center",
+                props.alignment === "right" && "justify-end text-right",
             )}
             style={{ backgroundImage: isMedia(props.image) ? `url(${props.image.url})` : "" }}
         >
+            <TornPaperDivider position="top" />
             <div className="max-w-xl space-y-8">
-                <TornPaperDivider position="top" />
                 <RichText
                     data={props.text}
                     className="font-bold font-display text-5xl text-background"
@@ -34,8 +34,8 @@ export default function CallToAction({ id, blockType, ...props }: CallToActionBl
                         {...props.ctaButton}
                     />
                 )}
-                <TornPaperDivider position="bottom" />
             </div>
+            <TornPaperDivider position="bottom" />
         </section>
     )
 }
