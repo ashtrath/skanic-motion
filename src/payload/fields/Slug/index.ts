@@ -9,15 +9,15 @@ interface SlugFieldOverrides {
 export const SlugField = (
     fieldToUse: string | undefined = "title",
     { checkboxOverrides, slugOverrides }: SlugFieldOverrides = {},
-): [CheckboxField, TextField] => {
+): [TextField, CheckboxField] => {
     const checkboxField: CheckboxField = {
         name: "slugLock",
         type: "checkbox",
+        defaultValue: true,
         admin: {
             hidden: true,
             position: "sidebar",
         },
-        defaultValue: true,
         ...checkboxOverrides,
     }
 
@@ -39,11 +39,12 @@ export const SlugField = (
                     path: "@/payload/fields/slug/SlugComponent#SlugComponent",
                     clientProps: {
                         fieldToUse,
+                        checkboxFieldPath: checkboxField.name,
                     },
                 },
             },
         },
     } as TextField
 
-    return [checkboxField, slugField]
+    return [slugField, checkboxField]
 }

@@ -1,38 +1,31 @@
 "use client"
 
-import {
-    CheckboxInput,
-    FieldLabel,
-    TextInput,
-    useField,
-    useForm,
-    useFormFields,
-} from "@payloadcms/ui"
+import { Button, FieldLabel, TextInput, useField, useForm, useFormFields } from "@payloadcms/ui"
 import type { TextFieldClientProps } from "payload"
 import * as React from "react"
 
 import { formatSlug } from "@/lib/utils/formatSlug"
 import "./style.scss"
 
-interface SlugComponentProps extends TextFieldClientProps {
-    checkboxFieldPath: string
+type SlugComponentProps = {
     fieldToUse: string
-}
+    checkboxFieldPath: string
+} & TextFieldClientProps
 
-export const SlugComponent = ({
-    checkboxFieldPath: checkboxFieldPathFromProps,
+export const SlugComponent: React.FC<SlugComponentProps> = ({
     field,
     fieldToUse,
+    checkboxFieldPath: checkboxFieldPathFromProps,
     path,
     readOnly: readOnlyFromProps,
-}: SlugComponentProps) => {
+}) => {
     const { label } = field
 
     const checkboxFieldPath = path?.includes(".")
         ? `${path}.${checkboxFieldPathFromProps}`
         : checkboxFieldPathFromProps
 
-    const { setValue, value } = useField<string>({ path: path || field.name })
+    const { value, setValue } = useField<string>({ path: path || field.name })
 
     const { dispatchFields } = useForm()
 
@@ -52,19 +45,15 @@ export const SlugComponent = ({
             if (targetFieldValue) {
                 const formattedSlug = formatSlug(targetFieldValue)
 
-                if (value !== formattedSlug) {
-                    setValue(formattedSlug)
-                }
+                if (value !== formattedSlug) setValue(formattedSlug)
             } else {
-                if (value !== "") {
-                    setValue("")
-                }
+                if (value !== "") setValue("")
             }
         }
     }, [targetFieldValue, checkboxValue, setValue, value])
 
     const handleLock = React.useCallback(
-        (e: React.ChangeEvent<HTMLInputElement>) => {
+        (e: React.MouseEvent<Element>) => {
             e.preventDefault()
 
             dispatchFields({
@@ -80,21 +69,20 @@ export const SlugComponent = ({
 
     return (
         <div className="field-type slug-field-component">
-            <FieldLabel htmlFor={`field-${path}`} label={label} />
+            <div className="label-wrapper">
+                <FieldLabel htmlFor={`field-${path}`} label={label} />
 
-            <div className="container">
-                <TextInput
-                    onChange={setValue}
-                    path={path || field.name}
-                    readOnly={Boolean(readOnly)}
-                    value={value}
-                />
-                <CheckboxInput
-                    name={checkboxFieldPath}
-                    onToggle={handleLock}
-                    checked={!checkboxValue}
-                />
+                <Button className="lock-button" buttonStyle="none" onClick={handleLock}>
+                    {checkboxValue ? "Unlock" : "Lock"}
+                </Button>
             </div>
+
+            <TextInput
+                value={value}
+                onChange={setValue}
+                path={path || field.name}
+                readOnly={Boolean(readOnly)}
+            />
         </div>
     )
 }
