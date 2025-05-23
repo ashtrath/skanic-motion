@@ -14,7 +14,7 @@ export default function CallToAction({ id, blockType, ...props }: CallToActionBl
             className={cn(
                 "relative flex h-[526px] items-center justify-start bg-center bg-cover px-22.5",
                 props.alignment === "center" && "justify-center text-center",
-                props.alignment === "right" && "justify-end text-right",
+                props.alignment === "right" && "justify-end",
             )}
             style={{ backgroundImage: isMedia(props.image) ? `url(${props.image.url})` : "" }}
         >
