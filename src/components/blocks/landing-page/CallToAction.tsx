@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react"
 
-import { CMSLink } from "@/components/ui/CMSLink"
+import { CMSLink } from "@/components/composites/CMSLink"
 import RichText from "@/components/ui/RichText"
 import TornPaperDivider from "@/components/ui/TornPaperDivider"
 import { cn } from "@/lib/utils/cn"
