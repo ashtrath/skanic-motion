@@ -9,10 +9,10 @@ export type IconOption = {
 export const IconPickerField = (overrides?: Partial<SelectField>) => {
     const baseField = {
         name: "icon",
+        required: false,
         ...overrides,
         type: "select",
         interfaceName: "LucideIcon",
-        required: false,
         hasMany: false,
         options: Object.keys(iconNodes).map((slug) => {
             const label = slug

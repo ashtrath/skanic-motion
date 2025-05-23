@@ -18,6 +18,7 @@ export const Services: CollectionConfig<"services"> = {
     },
     defaultPopulate: {
         title: true,
+        icon: true,
         slug: true,
         description: true,
         meta: {
@@ -38,7 +39,7 @@ export const Services: CollectionConfig<"services"> = {
                 {
                     label: "Details",
                     fields: [
-                        IconPickerField(),
+                        IconPickerField({ required: true }),
                         {
                             name: "description",
                             type: "textarea",
