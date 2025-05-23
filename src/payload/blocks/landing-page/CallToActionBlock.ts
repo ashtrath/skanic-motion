@@ -1,40 +1,14 @@
-import {
-    FixedToolbarFeature,
-    ItalicFeature,
-    lexicalEditor,
-    UnderlineFeature,
-} from "@payloadcms/richtext-lexical"
 import type { Block } from "payload"
-import { TextColorFeature } from "payload-lexical-typography"
 
 import { ColorPickerField } from "@/payload/fields/color-picker"
+import { InlineLexicalField } from "@/payload/fields/inline-lexical"
 import { LinkField } from "@/payload/fields/link"
 
 export const CallToActionBlock: Block = {
     slug: "call-to-action-block",
     interfaceName: "CallToActionBlock",
     fields: [
-        {
-            name: "text",
-            type: "richText",
-            editor: lexicalEditor({
-                features: () => [
-                    FixedToolbarFeature(),
-                    ItalicFeature(),
-                    UnderlineFeature(),
-                    TextColorFeature({
-                        colors: [
-                            "oklch(0.37 0.09 263.09)",
-                            "oklch(0.62 0.21 25.75)",
-                            "oklch(0.99 0.01 17.25)",
-                            "oklch(0.19 0 0)",
-                        ],
-                        hideAttribution: true,
-                    }),
-                ],
-            }),
-            required: true,
-        },
+        InlineLexicalField({ name: "heading", label: "Heading", required: true }),
         {
             name: "alignment",
             type: "select",

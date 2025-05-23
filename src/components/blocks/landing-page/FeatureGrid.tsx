@@ -15,6 +15,11 @@ export default function FeatureGrid({ id, blockType, ...props }: FeatureGridBloc
         >
             <div className="max-w-sm flex-1 space-y-8">
                 <p className="ml-1 uppercase tracking-widest">{props.eyebrow}</p>
+                {props.heading && (
+                    <h2 className="font-bold font-display text-5xl">
+                        <RichText data={props.heading} inline />
+                    </h2>
+                )}
                 <RichText
                     data={props.content}
                     className="prose-h2:text-5xl prose-p:text-muted-foreground"

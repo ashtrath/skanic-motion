@@ -19,11 +19,10 @@ export default function CallToAction({ id, blockType, ...props }: CallToActionBl
             style={{ backgroundImage: isMedia(props.image) ? `url(${props.image.url})` : "" }}
         >
             <TornPaperDivider position="top" />
-            <div className="max-w-xl space-y-8">
-                <RichText
-                    data={props.text}
-                    className="font-bold font-display text-5xl text-background"
-                />
+            <div className="max-w-xl space-y-6">
+                <h2 className="font-bold font-display text-5xl text-background">
+                    <RichText data={props.heading} inline />
+                </h2>
                 {props.ctaButton && (
                     <CMSLink
                         key={id}

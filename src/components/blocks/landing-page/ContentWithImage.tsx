@@ -16,6 +16,9 @@ export default function ContentWithImage({ id, blockType, ...props }: ContentWit
         >
             <div className="max-w-xl flex-1 space-y-8">
                 <p className="ml-1 uppercase tracking-widest">{props.eyebrow}</p>
+                <h2 className="font-bold font-display text-5xl">
+                    <RichText data={props.heading} inline />
+                </h2>
                 <RichText
                     data={props.content}
                     className="prose-h2:text-5xl prose-p:text-muted-foreground"

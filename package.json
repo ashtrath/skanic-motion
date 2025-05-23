@@ -36,7 +36,6 @@
         "next": "15.3.0",
         "payload": "3.39.1",
         "payload-blurhash-plugin": "^3.1.0",
-        "payload-lexical-typography": "^0.4.0",
         "postcss": "^8.5.3",
         "react": "19.1.0",
         "react-dom": "19.1.0",
@@ -61,6 +60,8 @@
         "pnpm": "^9 || ^10"
     },
     "pnpm": {
-        "onlyBuiltDependencies": ["sharp"]
+        "onlyBuiltDependencies": [
+            "sharp"
+        ]
     }
 }

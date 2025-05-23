@@ -2228,6 +2228,21 @@ export interface HeroSlideshowBlock {
  */
 export interface ContentWithImageBlock {
   eyebrow?: string | null;
+  heading: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
   content: {
     root: {
       type: string;
@@ -2269,7 +2284,7 @@ export interface ContentWithImageBlock {
  * via the `definition` "CallToActionBlock".
  */
 export interface CallToActionBlock {
-  text: {
+  heading: {
     root: {
       type: string;
       children: {
@@ -2314,6 +2329,21 @@ export interface CallToActionBlock {
  */
 export interface FeatureGridBlock {
   eyebrow?: string | null;
+  heading: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
   content: {
     root: {
       type: string;
@@ -2398,6 +2428,7 @@ export interface ProjectSlidesSelect<T extends boolean = true> {
  */
 export interface ContentWithImageBlockSelect<T extends boolean = true> {
   eyebrow?: T;
+  heading?: T;
   content?: T;
   image?: T;
   imagePosition?: T;
@@ -2418,7 +2449,7 @@ export interface ContentWithImageBlockSelect<T extends boolean = true> {
  * via the `definition` "CallToActionBlock_select".
  */
 export interface CallToActionBlockSelect<T extends boolean = true> {
-  text?: T;
+  heading?: T;
   alignment?: T;
   image?: T;
   enableSeparator?: T;
@@ -2442,6 +2473,7 @@ export interface CallToActionBlockSelect<T extends boolean = true> {
  */
 export interface FeatureGridBlockSelect<T extends boolean = true> {
   eyebrow?: T;
+  heading?: T;
   content?: T;
   services?: T;
   ctaButton?:

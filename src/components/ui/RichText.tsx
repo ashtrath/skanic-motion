@@ -2,32 +2,45 @@ import type { DefaultNodeTypes } from "@payloadcms/richtext-lexical"
 import type { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical"
 import {
     type JSXConvertersFunction,
-    RichText as RichTextWithoutBlocks,
+    RichText as PayloadRichText,
 } from "@payloadcms/richtext-lexical/react"
-import { TypographyJSXConverters } from "payload-lexical-typography/converters"
+import type React from "react"
 
 import { cn } from "@/lib/utils/cn"
 
-const jsxConverters: JSXConvertersFunction<DefaultNodeTypes> = ({ defaultConverters }) => ({
+const inlineJsxConverters: JSXConvertersFunction<DefaultNodeTypes> = ({ defaultConverters }) => ({
     ...defaultConverters,
-    ...TypographyJSXConverters,
+    paragraph: ({ node, nodesToJSX }) => {
+        console.log(node)
+        return <>{nodesToJSX({ nodes: node.children })}</>
+    },
+    heading: ({ node, nodesToJSX }) => {
+        console.log(node)
+        return <>{nodesToJSX({ nodes: node.children })}</>
+    },
+    linebreak: () => <></>,
 })
 
-type Props = {
+interface RichTextProps extends React.ComponentProps<"div"> {
     data: SerializedEditorState
     enableGutter?: boolean
     enableProse?: boolean
-} & React.HTMLAttributes<HTMLDivElement>
+    inline?: boolean
+}
 
 export default function RichText({
     enableProse = true,
     enableGutter = true,
+    inline = false,
     className,
     ...props
-}: Props) {
+}: RichTextProps) {
+    if (!props.data) return null
+
     return (
-        <RichTextWithoutBlocks
-            converters={jsxConverters}
+        <PayloadRichText
+            converters={inline ? inlineJsxConverters : undefined}
+            disableContainer={inline}
             className={cn(
                 {
                     container: enableGutter,
