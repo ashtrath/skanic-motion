@@ -11,11 +11,9 @@ import { cn } from "@/lib/utils/cn"
 const inlineJsxConverters: JSXConvertersFunction<DefaultNodeTypes> = ({ defaultConverters }) => ({
     ...defaultConverters,
     paragraph: ({ node, nodesToJSX }) => {
-        console.log(node)
         return <>{nodesToJSX({ nodes: node.children })}</>
     },
     heading: ({ node, nodesToJSX }) => {
-        console.log(node)
         return <>{nodesToJSX({ nodes: node.children })}</>
     },
     linebreak: () => <></>,
