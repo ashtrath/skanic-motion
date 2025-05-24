@@ -1,8 +1,9 @@
 import { ArrowRight } from "lucide-react"
-import { DynamicIcon, type IconName } from "lucide-react/dynamic"
+import type { IconName } from "lucide-react/dynamic"
 import Link from "next/link"
 
 import type { Service } from "@/payload/payload-types"
+import DynamicIcon from "../ui/DynamicIcon"
 
 export default function FeatureCard({ icon, title, description, slug }: Service) {
     return (
