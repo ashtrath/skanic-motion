@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
     padding: 8px;
-
+    
     &.focused {
         background-color: #0f0f0f;
     }
@@ -31,4 +31,4 @@
 
 html[data-theme="dark"] .icon-preview {
     filter: invert(1);
-}
+} 

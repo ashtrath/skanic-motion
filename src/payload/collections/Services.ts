@@ -1,4 +1,3 @@
-import lucideIconSet from "@iconify-json/lucide/icons.json"
 import {
     MetaDescriptionField,
     MetaImageField,
@@ -40,20 +39,12 @@ export const Services: CollectionConfig<"services"> = {
                 {
                     label: "Details",
                     fields: [
+                        IconPickerField({ required: true }),
                         {
                             name: "description",
                             type: "textarea",
                             required: true,
                         },
-                        IconPickerField({
-                            iconSets: [
-                                {
-                                    data: lucideIconSet,
-                                    label: "Lucide",
-                                },
-                            ],
-                            required: true,
-                        }),
                         {
                             name: "keyPoints",
                             type: "array",

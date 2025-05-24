@@ -1,14 +1,13 @@
-import type { IconifyIcon } from "@iconify/types"
+import type { LucideIcon } from "lucide-react"
 import Link from "next/link"
 import type * as React from "react"
-
 import { Button, type ButtonProps } from "@/components/ui/Button"
 import { cn } from "@/lib/utils/cn"
 import type { Page, Project } from "@/payload/payload-types"
 
 type CMSLinkType = {
     appearance?: "inline" | ButtonProps["variant"]
-    icon?: string | IconifyIcon
+    icon?: LucideIcon
     effect?: ButtonProps["effect"]
     children?: React.ReactNode
     className?: string

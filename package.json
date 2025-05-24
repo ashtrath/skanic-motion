@@ -16,6 +16,7 @@
         "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
     },
     "dependencies": {
+        "@icons-pack/react-simple-icons": "^12.8.0",
         "@payloadcms/db-postgres": "3.39.1",
         "@payloadcms/next": "3.39.1",
         "@payloadcms/payload-cloud": "3.39.1",
@@ -30,6 +31,8 @@
         "cross-env": "^7.0.3",
         "embla-carousel-react": "^8.6.0",
         "graphql": "^16.8.1",
+        "lucide-react": "^0.509.0",
+        "lucide-static": "^0.511.0",
         "motion": "^12.12.1",
         "next": "15.3.0",
         "payload": "3.39.1",
@@ -45,10 +48,6 @@
     },
     "devDependencies": {
         "@biomejs/biome": "2.0.0-beta.5",
-        "@iconify-icon/react": "^3.0.0",
-        "@iconify-json/lucide": "^1.2.44",
-        "@iconify-json/simple-icons": "^1.2.35",
-        "@iconify/types": "^2.0.0",
         "@tailwindcss/typography": "^0.5.16",
         "@types/node": "^22.5.4",
         "@types/react": "19.1.0",

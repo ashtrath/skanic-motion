@@ -1,4 +1,4 @@
-import type { IconifyJSON } from "@iconify/types"
+import iconNodes from "lucide-static/icon-nodes.json"
 import type { SelectField } from "payload"
 
 export type IconOption = {
@@ -6,52 +6,31 @@ export type IconOption = {
     label: string
 }
 
-export type IconSet = {
-    data: IconifyJSON
-    label: string
-}
-
-interface IconPickerFieldProps extends Omit<Partial<SelectField>, "options"> {
-    iconSets: IconSet[]
-}
-
-export const IconPickerField = ({ iconSets, ...overrides }: IconPickerFieldProps) => {
-    const iconOptions: IconOption[] = []
-
-    if (iconSets && Array.isArray(iconSets)) {
-        iconSets.forEach((iconSet) => {
-            if (!iconSet || !iconSet.data || !iconSet.data.icons || !iconSet.data.prefix) {
-                console.warn(
-                    `[IconPickerField] Invalid or incomplete 'IconInputSet' provided for icon field. ` +
-                        `Set labeled "${iconSet?.label || "Unknown"}" is missing 'data.icons' or 'data.prefix'. Skipping this set.`,
-                )
-                return
-            }
-
-            const { icons, prefix } = iconSet.data
-
-            Object.keys(icons).forEach((iconName) => {
-                const label = iconName
-                    .split("-")
-                    .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
-                    .join(" ")
-
-                iconOptions.push({
-                    value: `${prefix}:${iconName}`,
-                    label: `${iconSet.label}: ${label}`,
-                })
-            })
-        })
-    }
-
-    return {
+export const IconPickerField = (overrides?: Partial<SelectField>) => {
+    const baseField = {
         name: "icon",
         required: false,
         ...overrides,
         type: "select",
-        interfaceName: "IconValue",
+        interfaceName: "LucideIcon",
         hasMany: false,
-        options: iconOptions,
+        options: Object.keys(iconNodes).map((slug) => {
+            const label = slug
+                .split("-")
+                .map((segment) => {
+                    if (/^\d+$/.test(segment)) return segment
+
+                    return segment
+                        .replace(/^[a-z]/, (c) => c.toUpperCase())
+                        .replace(/(\d)([a-z])/g, (_, d, l) => d + l.toUpperCase())
+                })
+                .join(" ")
+
+            return {
+                value: slug,
+                label,
+            }
+        }),
         admin: {
             ...(overrides?.admin || {}),
             components: {
@@ -61,4 +40,6 @@ export const IconPickerField = ({ iconSets, ...overrides }: IconPickerFieldProps
             },
         },
     } as SelectField
+
+    return baseField
 }

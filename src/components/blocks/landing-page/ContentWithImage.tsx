@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react"
 import { CMSLink } from "@/components/composites/CMSLink"
 import Media from "@/components/ui/Media"
 import RichText from "@/components/ui/RichText"
@@ -26,7 +27,7 @@ export default function ContentWithImage({ id, blockType, ...props }: ContentWit
                     <CMSLink
                         key={id}
                         appearance="outline"
-                        icon="lucide:arrow-right"
+                        icon={ArrowRight}
                         effect="expandIcon"
                         size="lg"
                         className="rounded-full"
