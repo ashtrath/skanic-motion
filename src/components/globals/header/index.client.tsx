@@ -1,6 +1,6 @@
 "use client"
 
-import { Icon } from "@iconify-icon/react"
+import { Menu, X } from "lucide-react"
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react"
 import Link from "next/link"
 import * as React from "react"
@@ -53,7 +53,7 @@ export default function HeaderClient() {
                     size="icon"
                     className="size-12 rounded-full"
                 >
-                    <Icon icon="lucide:menu" height="none" className="size-8" />
+                    <Menu className="size-8" />
                 </Button>
             </motion.div>
             <AnimatePresence mode="wait">
@@ -73,7 +73,7 @@ export default function HeaderClient() {
                                 size="icon"
                                 className="size-16 rounded-full text-right"
                             >
-                                <Icon icon="lucide:x" height="none" className="size-12" />
+                                <X className="size-12" />
                             </Button>
                         </div>
                         <div className="flex justify-between px-[12vw]">
