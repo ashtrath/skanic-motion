@@ -1,4 +1,4 @@
-import { SiFacebook, SiInstagram, SiTiktok } from "@icons-pack/react-simple-icons"
+import { Icon } from "@iconify-icon/react"
 
 import {
     Carousel,
@@ -44,27 +44,39 @@ export default function HeroSlideshow({
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <SiFacebook className="size-6 text-background transition-colors duration-300 ease-in-out hover:text-primary" />
+                            <Icon
+                                icon="simple-icons:facebook"
+                                height="none"
+                                className="size-6 text-background transition-colors duration-300 ease-in-out hover:text-primary"
+                            />
                         </a>
                         <a
                             href="https://www.instagram.com/animasi_smkn1ciomas"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <SiInstagram className="size-6 text-background transition-colors duration-300 ease-in-out hover:text-primary" />
+                            <Icon
+                                icon="simple-icons:instagram"
+                                height="none"
+                                className="size-6 text-background transition-colors duration-300 ease-in-out hover:text-primary"
+                            />
                         </a>
                         <a
                             href="https://www.tiktok.com/@skanicmotion"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <SiTiktok className="size-6 text-background transition-colors duration-300 ease-in-out hover:text-primary" />
+                            <Icon
+                                icon="simple-icons:tiktok"
+                                height="none"
+                                className="size-6 text-background transition-colors duration-300 ease-in-out hover:text-primary"
+                            />
                         </a>
                     </nav>
                     <HeroSlideshowClient slides={slides} />
                     <div className="flex w-1/2 justify-end gap-8">
-                        <CarouselPrevious className="size-16 border-background bg-transparent text-background hover:bg-background hover:text-foreground [&_svg]:size-8! [&_svg]:stroke-1" />
-                        <CarouselNext className="size-16 border-background bg-transparent text-background hover:bg-background hover:text-foreground [&_svg]:size-8! [&_svg]:stroke-1" />
+                        <CarouselPrevious className="size-16 border-background bg-transparent text-background hover:bg-background hover:text-foreground [&_iconify-icon]:size-8! [&_iconify-icon]:stroke-1" />
+                        <CarouselNext className="size-16 border-background bg-transparent text-background hover:bg-background hover:text-foreground [&_iconify-icon]:size-8! [&_iconify-icon]:stroke-1" />
                     </div>
                 </div>
                 <CarouselIndicator className="absolute inset-x-0 bottom-4 mx-auto max-w-sm" />

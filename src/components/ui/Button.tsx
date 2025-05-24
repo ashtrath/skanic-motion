@@ -1,11 +1,13 @@
+import type { IconifyIcon } from "@iconify/types"
+import { Icon } from "@iconify-icon/react"
 import { cva, type VariantProps } from "class-variance-authority"
-import type { LucideIcon } from "lucide-react"
 import type * as React from "react"
+
 import { cn } from "@/lib/utils/cn"
 import NestedSlot from "./NestedSlot"
 
 const buttonVariants = cva(
-    "inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md font-display text-sm outline-none transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+    "inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md font-display text-sm outline-none transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 [&_iconify-icon:not([class*='size-'])]:size-4 [&_iconify-icon]:pointer-events-none [&_iconify-icon]:shrink-0",
     {
         variants: {
             variant: {
@@ -34,9 +36,9 @@ const buttonVariants = cva(
                     "!no-underline relative after:absolute after:bottom-2 after:h-[1px] after:w-2/3 after:origin-bottom-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100",
             },
             size: {
-                default: "h-9 px-4 py-2 has-[>svg]:px-3",
-                sm: "h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5",
-                lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
+                default: "h-9 px-4 py-2 has-[>iconify-icon]:px-3",
+                sm: "h-8 gap-1.5 rounded-md px-3 has-[>iconify-icon]:px-2.5",
+                lg: "h-10 rounded-md px-6 has-[>iconify-icon]:px-4",
                 icon: "size-9",
             },
         },
@@ -50,7 +52,7 @@ const buttonVariants = cva(
 export interface ButtonProps
     extends React.ComponentProps<"button">,
         VariantProps<typeof buttonVariants> {
-    icon?: LucideIcon
+    icon?: string | IconifyIcon
     iconPlacement?: "left" | "right"
     asChild?: boolean
 }
@@ -60,7 +62,7 @@ function Button({
     variant,
     effect,
     size,
-    icon: Icon,
+    icon,
     iconPlacement = "right",
     asChild = false,
     ...props
@@ -70,24 +72,24 @@ function Button({
             component={"button"}
             render={({ children }) => (
                 <>
-                    {Icon &&
+                    {icon &&
                         iconPlacement === "left" &&
                         (effect === "expandIcon" ? (
                             <div className="w-0 translate-x-[0%] pr-0 opacity-0 transition-[translate,width,opacity,padding] duration-200 group-hover:w-5 group-hover:translate-x-0 group-hover:pr-2 group-hover:opacity-100">
-                                <Icon />
+                                <Icon icon={icon} height="none" />
                             </div>
                         ) : (
-                            <Icon />
+                            <Icon icon={icon} height="none" />
                         ))}
-                    <span>{children}</span>
-                    {Icon &&
+                    {children}
+                    {icon &&
                         iconPlacement === "right" &&
                         (effect === "expandIcon" ? (
                             <div className="w-0 translate-x-[100%] pl-0 opacity-0 transition-[translate,width,opacity,padding] duration-200 group-hover:w-5 group-hover:translate-x-0 group-hover:pl-2 group-hover:opacity-100">
-                                <Icon />
+                                <Icon icon={icon} height="none" />
                             </div>
                         ) : (
-                            <Icon />
+                            <Icon icon={icon} height="none" />
                         ))}
                 </>
             )}

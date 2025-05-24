@@ -10,7 +10,7 @@ import { areEqual, FixedSizeList as List } from "react-window"
 
 import "./style.scss"
 
-const ICON_BASE_URL = "https://cdn.jsdelivr.net/npm/lucide-static@0.509.0/icons/"
+const ICON_BASE_URL = "https://api.iconify.design/"
 
 const IconPreview: React.FC<{ name: string }> = React.memo(({ name }) => (
     <Image

@@ -1,5 +1,3 @@
-import { ArrowRight } from "lucide-react"
-
 import { CMSLink } from "@/components/composites/CMSLink"
 import FeatureCard from "@/components/composites/FeatureCard"
 import RichText from "@/components/ui/RichText"
@@ -28,7 +26,7 @@ export default function FeatureGrid({ id, blockType, ...props }: FeatureGridBloc
                     <CMSLink
                         key={id}
                         appearance="outline"
-                        icon={ArrowRight}
+                        icon="lucide:arrow-right"
                         effect="expandIcon"
                         size="lg"
                         className="rounded-full"

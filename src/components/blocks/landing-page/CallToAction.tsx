@@ -1,5 +1,3 @@
-import { ArrowRight } from "lucide-react"
-
 import { CMSLink } from "@/components/composites/CMSLink"
 import RichText from "@/components/ui/RichText"
 import TornPaperDivider from "@/components/ui/TornPaperDivider"
@@ -27,7 +25,7 @@ export default function CallToAction({ id, blockType, ...props }: CallToActionBl
                     <CMSLink
                         key={id}
                         appearance="default"
-                        icon={ArrowRight}
+                        icon="lucide:arrow-right"
                         effect="shineHover"
                         size="lg"
                         {...props.ctaButton}
