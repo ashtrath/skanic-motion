@@ -2,6 +2,7 @@ import { Inter as InterGoogle, Rubik as RubikGoogle } from "next/font/google"
 import type React from "react"
 
 import "./global.css"
+import Header from "@/components/globals/header"
 import { cn } from "@/lib/utils/cn"
 
 const Rubik = RubikGoogle({
@@ -24,6 +25,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             className={cn(Rubik.variable, Inter.variable, "font-text")}
         >
             <body className="min-h-[100dvh] bg-background text-foreground">
+                <Header />
                 <main>{children}</main>
             </body>
         </html>
