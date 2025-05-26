@@ -48,7 +48,7 @@
                 "name": "ts-plugin-sort-import-suggestions",
                 "moveUpPatterns": ["@/", "\\.{1,2}/"],
                 "moveDownPatterns": ["@radix-ui", "lucide-react"]
-              }
+            }
         ]
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

@@ -1,4 +1,3 @@
-import type { Media as MediaType } from "@/payload/payload-types"
 import { blurhashToBase64 } from "blurhash-base64"
 import Image, { type StaticImageData } from "next/image"
 
@@ -6,6 +5,7 @@ import { IMAGE_BREAKPOINTS } from "@/lib/constants"
 import { cn } from "@/lib/utils/cn"
 import { getClientSideURL } from "@/lib/utils/getUrl"
 import { isMedia } from "@/lib/utils/isMedia"
+import type { Media as MediaType } from "@/payload/payload-types"
 
 interface MediaProps {
     resource?: MediaType | number // for Payload media

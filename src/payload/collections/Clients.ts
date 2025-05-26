@@ -21,9 +21,7 @@ export const Clients: CollectionConfig<"clients"> = {
             name: "website",
             type: "text",
             validate: (value = "") =>
-                (value &&
-                    (URL.canParse(value) || "Please provide valid URL.")) ||
-                true,
+                (value && (URL.canParse(value) || "Please provide valid URL.")) || true,
         },
     ],
 }
