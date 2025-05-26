@@ -3,6 +3,7 @@ import { fileURLToPath } from "node:url"
 import { postgresAdapter } from "@payloadcms/db-postgres"
 import { buildConfig } from "payload"
 import sharp from "sharp"
+
 import { getServerSideURL } from "@/lib/utils/getUrl"
 import { Categories } from "./collections/Categories"
 import { Clients } from "./collections/Clients"
@@ -13,7 +14,8 @@ import { Services } from "./collections/Services"
 import { Users } from "./collections/Users"
 import { editor } from "./config/editor"
 import { plugins } from "./config/plugins"
-import { LandingPage } from "./globals/LandingPage"
+import { Header } from "./globals/Header"
+import { LandingPage } from "./globals/landing-page/config"
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -26,7 +28,7 @@ export default buildConfig({
             baseDir: path.resolve(dirname),
         },
     },
-    globals: [LandingPage],
+    globals: [LandingPage, Header],
     collections: [Users, Media, Pages, Clients, Categories, Projects, Services],
     secret: process.env.PAYLOAD_SECRET || " ",
     typescript: {

@@ -7,11 +7,11 @@ import {
 } from "@payloadcms/plugin-seo/fields"
 import type { GlobalConfig } from "payload"
 
-import { RichTextBlock } from "../blocks/common/RichTextBlock"
-import { CallToActionBlock } from "../blocks/landing-page/CallToActionBlock"
-import { ContentWithImageBlock } from "../blocks/landing-page/ContentWithImageBlock"
-import { FeatureGridBlock } from "../blocks/landing-page/FeatureGridBlock"
-import { HeroSlideshowBlock } from "../blocks/landing-page/HeroSlideshowBlock"
+import { CallToActionBlock } from "@/payload/blocks/landing-page/CallToActionBlock"
+import { ContentWithImageBlock } from "@/payload/blocks/landing-page/ContentWithImageBlock"
+import { FeatureGridBlock } from "@/payload/blocks/landing-page/FeatureGridBlock"
+import { HeroSlideshowBlock } from "@/payload/blocks/landing-page/HeroSlideshowBlock"
+import { revalidateLandingPage } from "./hooks/revalidateLandingPage"
 
 export const LandingPage: GlobalConfig<"landing-page"> = {
     slug: "landing-page",
@@ -36,7 +36,6 @@ export const LandingPage: GlobalConfig<"landing-page"> = {
                                 ContentWithImageBlock,
                                 CallToActionBlock,
                                 FeatureGridBlock,
-                                RichTextBlock,
                             ],
                             admin: {
                                 initCollapsed: true,
@@ -70,4 +69,7 @@ export const LandingPage: GlobalConfig<"landing-page"> = {
             ],
         },
     ],
+    hooks: {
+        afterChange: [revalidateLandingPage],
+    },
 }
