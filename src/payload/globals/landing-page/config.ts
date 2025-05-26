@@ -7,10 +7,10 @@ import {
 } from "@payloadcms/plugin-seo/fields"
 import type { GlobalConfig } from "payload"
 
-import { CallToActionBlock } from "@/payload/blocks/landing-page/CallToActionBlock"
-import { ContentWithImageBlock } from "@/payload/blocks/landing-page/ContentWithImageBlock"
-import { FeatureGridBlock } from "@/payload/blocks/landing-page/FeatureGridBlock"
-import { HeroSlideshowBlock } from "@/payload/blocks/landing-page/HeroSlideshowBlock"
+import { CallToActionBlock } from "@/payload/blocks/landing-page/call-to-action/config"
+import { ContentWithImageBlock } from "@/payload/blocks/landing-page/content-with-image/config"
+import { FeatureGridBlock } from "@/payload/blocks/landing-page/feature-grid/config"
+import { HeroSlideshowBlock } from "@/payload/blocks/landing-page/hero-slideshow/config"
 import { revalidateLandingPage } from "./hooks/revalidateLandingPage"
 
 export const LandingPage: GlobalConfig<"landing-page"> = {

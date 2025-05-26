@@ -2,8 +2,8 @@ import { Inter as InterGoogle, Rubik as RubikGoogle } from "next/font/google"
 import type React from "react"
 
 import "./global.css"
-import Header from "@/components/globals/header"
 import { cn } from "@/lib/utils/cn"
+import Header from "@/payload/globals/header/component"
 
 const Rubik = RubikGoogle({
     variable: "--font-rubik",

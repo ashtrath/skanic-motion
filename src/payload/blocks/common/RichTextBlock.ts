@@ -5,7 +5,8 @@ export const RichTextBlock: Block = {
     interfaceName: "RichTextBlock",
     fields: [
         {
-            name: "content",
+            name: "text",
+            label: false,
             type: "richText",
             required: true,
         },

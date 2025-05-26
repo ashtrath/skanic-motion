@@ -14,7 +14,7 @@ import { Services } from "./collections/Services"
 import { Users } from "./collections/Users"
 import { editor } from "./config/editor"
 import { plugins } from "./config/plugins"
-import { Header } from "./globals/Header"
+import { Header } from "./globals/header/config"
 import { LandingPage } from "./globals/landing-page/config"
 
 const filename = fileURLToPath(import.meta.url)

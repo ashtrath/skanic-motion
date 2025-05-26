@@ -1706,9 +1706,11 @@ export interface Config {
   };
   globals: {
     'landing-page': LandingPage;
+    header: Header;
   };
   globalsSelect: {
     'landing-page': LandingPageSelect<false> | LandingPageSelect<true>;
+    header: HeaderSelect<false> | HeaderSelect<true>;
   };
   locale: null;
   user: User & {
@@ -1818,7 +1820,7 @@ export interface Page {
  * via the `definition` "RichTextBlock".
  */
 export interface RichTextBlock {
-  content: {
+  text: {
     root: {
       type: string;
       children: {
@@ -2078,7 +2080,7 @@ export interface PagesSelect<T extends boolean = true> {
  * via the `definition` "RichTextBlock_select".
  */
 export interface RichTextBlockSelect<T extends boolean = true> {
-  content?: T;
+  text?: T;
   id?: T;
   blockName?: T;
 }
@@ -2200,7 +2202,7 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface LandingPage {
   id: number;
-  layout: (HeroSlideshowBlock | ContentWithImageBlock | CallToActionBlock | FeatureGridBlock | RichTextBlock)[];
+  layout: (HeroSlideshowBlock | ContentWithImageBlock | CallToActionBlock | FeatureGridBlock)[];
   meta?: {
     title?: string | null;
     /**
@@ -2381,6 +2383,69 @@ export interface FeatureGridBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header".
+ */
+export interface Header {
+  id: number;
+  navItems?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | ({
+                relationTo: 'pages';
+                value: number | Page;
+              } | null)
+            | ({
+                relationTo: 'projects';
+                value: number | Project;
+              } | null);
+          url?: string | null;
+          label: string;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  sideContent?:
+    | {
+        heading: string;
+        content?:
+          | (
+              | RichTextBlock
+              | {
+                  links: {
+                    link: {
+                      type?: ('reference' | 'custom') | null;
+                      newTab?: boolean | null;
+                      reference?:
+                        | ({
+                            relationTo: 'pages';
+                            value: number | Page;
+                          } | null)
+                        | ({
+                            relationTo: 'projects';
+                            value: number | Project;
+                          } | null);
+                      url?: string | null;
+                      label: string;
+                    };
+                    id?: string | null;
+                  }[];
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'link-list-block';
+                }
+            )[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "landing-page_select".
  */
 export interface LandingPageSelect<T extends boolean = true> {
@@ -2391,7 +2456,6 @@ export interface LandingPageSelect<T extends boolean = true> {
         'content-with-image-block'?: T | ContentWithImageBlockSelect<T>;
         'call-to-action-block'?: T | CallToActionBlockSelect<T>;
         'feature-grid-block'?: T | FeatureGridBlockSelect<T>;
-        'rich-text-block'?: T | RichTextBlockSelect<T>;
       };
   meta?:
     | T
@@ -2487,6 +2551,60 @@ export interface FeatureGridBlockSelect<T extends boolean = true> {
       };
   id?: T;
   blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header_select".
+ */
+export interface HeaderSelect<T extends boolean = true> {
+  navItems?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+            };
+        id?: T;
+      };
+  sideContent?:
+    | T
+    | {
+        heading?: T;
+        content?:
+          | T
+          | {
+              'rich-text-block'?: T | RichTextBlockSelect<T>;
+              'link-list-block'?:
+                | T
+                | {
+                    links?:
+                      | T
+                      | {
+                          link?:
+                            | T
+                            | {
+                                type?: T;
+                                newTab?: T;
+                                reference?: T;
+                                url?: T;
+                                label?: T;
+                              };
+                          id?: T;
+                        };
+                    id?: T;
+                    blockName?: T;
+                  };
+            };
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
