@@ -63,8 +63,8 @@ export default function HeroSlideshow({
                     </nav>
                     <HeroSlideshowClient slides={slides} />
                     <div className="flex w-1/2 justify-end gap-8">
-                        <CarouselPrevious className="size-16 border-background bg-transparent text-background hover:bg-background hover:text-foreground [&_svg]:size-8! [&_svg]:stroke-1" />
-                        <CarouselNext className="size-16 border-background bg-transparent text-background hover:bg-background hover:text-foreground [&_svg]:size-8! [&_svg]:stroke-1" />
+                        <CarouselPrevious className="size-16 border-background bg-transparent text-background hover:bg-background hover:text-foreground [&_svg]:size-8!" />
+                        <CarouselNext className="size-16 border-background bg-transparent text-background hover:bg-background hover:text-foreground [&_svg]:size-8!" />
                     </div>
                 </div>
                 <CarouselIndicator className="absolute inset-x-0 bottom-4 mx-auto max-w-sm" />

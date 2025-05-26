@@ -117,6 +117,10 @@
     * {
         @apply border-border outline-ring/50;
     }
+
+    .lucide {
+        stroke-width: 1.5px;
+    }
 }
 
 @utility prose {
