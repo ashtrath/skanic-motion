@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/Carousel"
 import Media from "@/components/ui/Media"
 import type { ProjectSlides } from "@/payload/payload-types"
-import HeroSlideshowClient from "./HeroSlideshow.client"
+import HeroSlideshowClient from "./Component.client"
 
 export default function HeroSlideshow({
     id,
