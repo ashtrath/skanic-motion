@@ -50,9 +50,6 @@ importers:
       embla-carousel-react:
         specifier: ^8.6.0
         version: 8.6.0(react@19.1.0)
-      graphql:
-        specifier: ^16.8.1
-        version: 16.11.0
       lucide-react:
         specifier: ^0.509.0
         version: 0.509.0(react@19.1.0)
