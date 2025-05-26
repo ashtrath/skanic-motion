@@ -1,31 +1,16 @@
-import config from "@payload-config"
-import { getPayload } from "payload"
-import { cache } from "react"
-
 import Blocks from "@/components/blocks"
 import { generateMeta } from "@/lib/utils/generateMeta"
+import { getCachedGlobal } from "@/lib/utils/getGlobals"
+import type { LandingPage as LandingPageType } from "@/payload/payload-types"
 
 export default async function LandingPage() {
-    const page = await queryLandingPage()
+    const page = (await getCachedGlobal("landing-page", 1)()) as LandingPageType
 
-    return (
-        <>
-            <Blocks blocks={page.layout} />
-        </>
-    )
+    return <Blocks blocks={page.layout} />
 }
 
 export async function generateMetadata() {
-    const page = await queryLandingPage()
+    const page = await getCachedGlobal("landing-page")()
 
     return generateMeta({ doc: page })
 }
-
-const queryLandingPage = cache(async () => {
-    const payload = await getPayload({ config: config })
-    const result = await payload.findGlobal({
-        slug: "landing-page",
-    })
-
-    return result
-})
