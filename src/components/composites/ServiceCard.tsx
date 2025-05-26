@@ -5,7 +5,7 @@ import Link from "next/link"
 import type { Service } from "@/payload/payload-types"
 import DynamicIcon from "../ui/DynamicIcon"
 
-export default function FeatureCard({ icon, title, description, slug }: Service) {
+export default function ServiceCard({ icon, title, description, slug }: Service) {
     return (
         <article className="flex max-w-80 flex-col justify-between gap-2">
             <div>

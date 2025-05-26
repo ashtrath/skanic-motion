@@ -2202,7 +2202,7 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface LandingPage {
   id: number;
-  layout: (HeroSlideshowBlock | ContentWithImageBlock | CallToActionBlock | FeatureGridBlock)[];
+  layout: (HeroSlideshowBlock | ContentWithImageBlock | CallToActionBlock | ServicesGridBlock)[];
   meta?: {
     title?: string | null;
     /**
@@ -2327,9 +2327,9 @@ export interface CallToActionBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "FeatureGridBlock".
+ * via the `definition` "ServicesGridBlock".
  */
-export interface FeatureGridBlock {
+export interface ServicesGridBlock {
   eyebrow?: string | null;
   heading: {
     root: {
@@ -2379,7 +2379,7 @@ export interface FeatureGridBlock {
   };
   id?: string | null;
   blockName?: string | null;
-  blockType: 'feature-grid-block';
+  blockType: 'services-grid-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2455,7 +2455,7 @@ export interface LandingPageSelect<T extends boolean = true> {
         'hero-slideshow-block'?: T | HeroSlideshowBlockSelect<T>;
         'content-with-image-block'?: T | ContentWithImageBlockSelect<T>;
         'call-to-action-block'?: T | CallToActionBlockSelect<T>;
-        'feature-grid-block'?: T | FeatureGridBlockSelect<T>;
+        'services-grid-block'?: T | ServicesGridBlockSelect<T>;
       };
   meta?:
     | T
@@ -2533,9 +2533,9 @@ export interface CallToActionBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "FeatureGridBlock_select".
+ * via the `definition` "ServicesGridBlock_select".
  */
-export interface FeatureGridBlockSelect<T extends boolean = true> {
+export interface ServicesGridBlockSelect<T extends boolean = true> {
   eyebrow?: T;
   heading?: T;
   content?: T;

@@ -9,8 +9,8 @@ import type { GlobalConfig } from "payload"
 
 import { CallToActionBlock } from "@/payload/blocks/landing-page/call-to-action/config"
 import { ContentWithImageBlock } from "@/payload/blocks/landing-page/content-with-image/config"
-import { FeatureGridBlock } from "@/payload/blocks/landing-page/feature-grid/config"
 import { HeroSlideshowBlock } from "@/payload/blocks/landing-page/hero-slideshow/config"
+import { ServicesGridBlock } from "@/payload/blocks/landing-page/services-grid/config"
 import { revalidateLandingPage } from "./hooks/revalidateLandingPage"
 
 export const LandingPage: GlobalConfig<"landing-page"> = {
@@ -35,7 +35,7 @@ export const LandingPage: GlobalConfig<"landing-page"> = {
                                 HeroSlideshowBlock,
                                 ContentWithImageBlock,
                                 CallToActionBlock,
-                                FeatureGridBlock,
+                                ServicesGridBlock,
                             ],
                             admin: {
                                 initCollapsed: true,

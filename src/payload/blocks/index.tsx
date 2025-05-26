@@ -1,14 +1,14 @@
 import type { LandingPage } from "@/payload/payload-types"
 import CallToAction from "./landing-page/call-to-action/Component"
 import ContentWithImage from "./landing-page/content-with-image/Component"
-import FeatureGrid from "./landing-page/feature-grid/Component"
 import HeroSlideshow from "./landing-page/hero-slideshow/Component"
+import ServicesGrid from "./landing-page/services-grid/Component"
 
 const BLOCK_COMPONENTS = {
     "hero-slideshow-block": HeroSlideshow,
     "content-with-image-block": ContentWithImage,
     "call-to-action-block": CallToAction,
-    "feature-grid-block": FeatureGrid,
+    "services-grid-block": ServicesGrid,
     "rich-text-block": HeroSlideshow,
 }
 

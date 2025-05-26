@@ -3,9 +3,9 @@ import type { Block } from "payload"
 import { InlineLexicalField } from "@/payload/fields/inline-lexical"
 import { LinkField } from "@/payload/fields/link"
 
-export const FeatureGridBlock: Block = {
-    slug: "feature-grid-block",
-    interfaceName: "FeatureGridBlock",
+export const ServicesGridBlock: Block = {
+    slug: "services-grid-block",
+    interfaceName: "ServicesGridBlock",
     fields: [
         {
             name: "eyebrow",

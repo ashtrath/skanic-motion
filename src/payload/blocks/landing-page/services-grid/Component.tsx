@@ -1,13 +1,13 @@
 import { ArrowRight } from "lucide-react"
 
 import { CMSLink } from "@/components/composites/CMSLink"
-import FeatureCard from "@/components/composites/FeatureCard"
+import ServiceCard from "@/components/composites/ServiceCard"
 import RichText from "@/components/ui/RichText"
 import { cn } from "@/lib/utils/cn"
 import { isExpandedDoc } from "@/lib/utils/isExpandedDoc"
-import type { FeatureGridBlock, Service } from "@/payload/payload-types"
+import type { Service, ServicesGridBlock } from "@/payload/payload-types"
 
-export default function FeatureGrid({ id, blockType, ...props }: FeatureGridBlock) {
+export default function ServicesGrid({ id, blockType, ...props }: ServicesGridBlock) {
     return (
         <section
             id={`${blockType}-${id}`}
@@ -39,7 +39,7 @@ export default function FeatureGrid({ id, blockType, ...props }: FeatureGridBloc
             <div className="grid auto-rows-fr grid-cols-2 gap-8">
                 {props.services?.map((service) => {
                     if (!isExpandedDoc<Service>(service)) return
-                    return <FeatureCard key={service.id} {...service} />
+                    return <ServiceCard key={service.id} {...service} />
                 })}
             </div>
         </section>
