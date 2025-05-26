@@ -13,6 +13,7 @@ import { useField } from "@payloadcms/ui"
 import * as React from "react"
 
 import "./style.scss"
+import { colorState } from "@/lib/colorState"
 
 type RichTextFieldProps = React.ComponentProps<typeof RichTextField>
 type RichTextValue = {
@@ -80,22 +81,7 @@ export const InlineLexicalComponent = ({
             clientFeatureProps: {
                 featureKey: "textState",
                 order: 5,
-                state: {
-                    color: {
-                        primary: {
-                            label: "Primary",
-                            css: {
-                                color: "oklch(0.37 0.09 263.09)",
-                            },
-                        },
-                        accent: {
-                            label: "Accent",
-                            css: {
-                                color: "oklch(0.62 0.21 25.75)",
-                            },
-                        },
-                    },
-                },
+                state: colorState,
             },
             clientFeatureProvider: TextStateFeatureClient,
         },

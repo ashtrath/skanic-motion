@@ -11,6 +11,8 @@ import {
 } from "@payloadcms/richtext-lexical"
 import type { Config } from "payload"
 
+import { colorState } from "@/lib/colorState"
+
 export const editor: Config["editor"] = lexicalEditor({
     features: [
         FixedToolbarFeature(),
@@ -30,22 +32,7 @@ export const inlineEditor: Config["editor"] = lexicalEditor({
         UnderlineFeature(),
         StrikethroughFeature(),
         TextStateFeature({
-            state: {
-                color: {
-                    primary: {
-                        label: "Primary",
-                        css: {
-                            color: "oklch(0.37 0.09 263.09)",
-                        },
-                    },
-                    accent: {
-                        label: "Accent",
-                        css: {
-                            color: "oklch(0.62 0.21 25.75)",
-                        },
-                    },
-                },
-            },
+            state: colorState,
         }),
     ],
 })
