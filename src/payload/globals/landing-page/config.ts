@@ -12,6 +12,7 @@ import { ContentWithImageBlock } from "@/payload/blocks/landing-page/content-wit
 import { HeroSlideshowBlock } from "@/payload/blocks/landing-page/hero-slideshow/config"
 import { ServicesGridBlock } from "@/payload/blocks/landing-page/services-grid/config"
 import { revalidateLandingPage } from "./hooks/revalidateLandingPage"
+import { ClientsGridBlock } from "@/payload/blocks/landing-page/clients-grid/config"
 
 export const LandingPage: GlobalConfig<"landing-page"> = {
     slug: "landing-page",
@@ -36,6 +37,7 @@ export const LandingPage: GlobalConfig<"landing-page"> = {
                                 ContentWithImageBlock,
                                 CallToActionBlock,
                                 ServicesGridBlock,
+                                ClientsGridBlock,
                             ],
                             admin: {
                                 initCollapsed: true,

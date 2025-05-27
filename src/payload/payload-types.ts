@@ -2202,7 +2202,7 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface LandingPage {
   id: number;
-  layout: (HeroSlideshowBlock | ContentWithImageBlock | CallToActionBlock | ServicesGridBlock)[];
+  layout: (HeroSlideshowBlock | ContentWithImageBlock | CallToActionBlock | ServicesGridBlock | ClientsGridBlock)[];
   meta?: {
     title?: string | null;
     /**
@@ -2383,6 +2383,47 @@ export interface ServicesGridBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ClientsGridBlock".
+ */
+export interface ClientsGridBlock {
+  eyebrow?: string | null;
+  heading: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  clients?: (number | Client)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'clients-grid-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header".
  */
 export interface Header {
@@ -2456,6 +2497,7 @@ export interface LandingPageSelect<T extends boolean = true> {
         'content-with-image-block'?: T | ContentWithImageBlockSelect<T>;
         'call-to-action-block'?: T | CallToActionBlockSelect<T>;
         'services-grid-block'?: T | ServicesGridBlockSelect<T>;
+        'clients-grid-block'?: T | ClientsGridBlockSelect<T>;
       };
   meta?:
     | T
@@ -2549,6 +2591,18 @@ export interface ServicesGridBlockSelect<T extends boolean = true> {
         url?: T;
         label?: T;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ClientsGridBlock_select".
+ */
+export interface ClientsGridBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  heading?: T;
+  content?: T;
+  clients?: T;
   id?: T;
   blockName?: T;
 }

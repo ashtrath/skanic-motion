@@ -32,16 +32,14 @@ export default function CallToAction({ id, blockType, ...props }: CallToActionBl
                 <h2 className="font-bold font-display text-5xl text-background">
                     <RichText data={props.heading} inline />
                 </h2>
-                {props.ctaButton && (
-                    <CMSLink
-                        key={id}
-                        appearance="default"
-                        icon={ArrowRight}
-                        effect="shineHover"
-                        size="lg"
-                        {...props.ctaButton}
-                    />
-                )}
+                <CMSLink
+                    key={id}
+                    appearance="default"
+                    icon={ArrowRight}
+                    effect="shineHover"
+                    size="lg"
+                    {...props.ctaButton}
+                />
             </div>
             {props.enableSeparator && <TornPaperDivider position="bottom" />}
         </section>

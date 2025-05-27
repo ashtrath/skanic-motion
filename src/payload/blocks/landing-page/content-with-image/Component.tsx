@@ -24,17 +24,15 @@ export default function ContentWithImage({ id, blockType, ...props }: ContentWit
                     data={props.content}
                     className="prose-h2:text-5xl prose-p:text-muted-foreground"
                 />
-                {props.ctaButton && (
-                    <CMSLink
-                        key={id}
-                        appearance="outline"
-                        icon={ArrowRight}
-                        effect="expandIcon"
-                        size="lg"
-                        className="rounded-full"
-                        {...props.ctaButton}
-                    />
-                )}
+                <CMSLink
+                    key={id}
+                    appearance="outline"
+                    icon={ArrowRight}
+                    effect="expandIcon"
+                    size="lg"
+                    className="rounded-full"
+                    {...props.ctaButton}
+                />
             </div>
             <div className="flex flex-1 items-center justify-center">
                 <Media resource={props.image} priority={true} className="h-auto max-w-full" />
