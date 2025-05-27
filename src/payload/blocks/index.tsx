@@ -1,5 +1,6 @@
 import type { LandingPage } from "@/payload/payload-types"
 import CallToAction from "./landing-page/call-to-action/Component"
+import ClientsGrid from "./landing-page/clients-grid/Component"
 import ContentWithImage from "./landing-page/content-with-image/Component"
 import HeroSlideshow from "./landing-page/hero-slideshow/Component"
 import ServicesGrid from "./landing-page/services-grid/Component"
@@ -10,6 +11,7 @@ const BLOCK_COMPONENTS = {
     "call-to-action-block": CallToAction,
     "services-grid-block": ServicesGrid,
     "rich-text-block": HeroSlideshow,
+    "clients-grid-block": ClientsGrid,
 }
 
 export default function Blocks({ blocks }: { blocks: LandingPage["layout"][0][] }) {

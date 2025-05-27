@@ -4,7 +4,7 @@ import Blocks from "@/payload/blocks"
 import type { LandingPage as LandingPageType } from "@/payload/payload-types"
 
 export default async function LandingPage() {
-    const page = (await getCachedGlobal("landing-page", 1)()) as LandingPageType
+    const page = (await getCachedGlobal("landing-page", 2)()) as LandingPageType
 
     return <Blocks blocks={page.layout} />
 }
