@@ -3,7 +3,6 @@ import { ArrowRight } from "lucide-react"
 import { CMSLink } from "@/components/composites/CMSLink"
 import ServiceCard from "@/components/composites/ServiceCard"
 import RichText from "@/components/ui/RichText"
-import { cn } from "@/lib/utils/cn"
 import { isExpandedDoc } from "@/lib/utils/isExpandedDoc"
 import type { Service, ServicesGridBlock } from "@/payload/payload-types"
 
@@ -11,7 +10,7 @@ export default function ServicesGrid({ id, blockType, ...props }: ServicesGridBl
     return (
         <section
             id={`${blockType}-${id}`}
-            className={cn("flex w-full items-start justify-between px-22.5 py-18.5")}
+            className="flex w-full items-start justify-between px-22.5 py-18.5"
         >
             <div className="max-w-sm flex-1 space-y-8">
                 <p className="ml-1 uppercase tracking-widest">{props.eyebrow}</p>
