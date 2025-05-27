@@ -28,12 +28,12 @@ export const Media: CollectionConfig = {
                 crop: "center",
             },
         ],
-
-        mimeTypes: ["image/jpeg", "image/png", "image/webp", "video/*"],
+        mimeTypes: ["image/jpeg", "image/png", "image/webp", "image/svg", "video/*"],
         formatOptions: {
             format: "webp",
             options: {
-                quality: 85,
+                quality: 80,
+                nearLossless: true,
             },
         },
     },
