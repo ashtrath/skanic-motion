@@ -62,7 +62,6 @@ function Button({
     size,
     icon: Icon,
     iconPlacement = "right",
-    asChild = false,
     ...props
 }: ButtonProps) {
     return (
