@@ -13,6 +13,7 @@ import { HeroSlideshowBlock } from "@/payload/blocks/landing-page/hero-slideshow
 import { ServicesGridBlock } from "@/payload/blocks/landing-page/services-grid/config"
 import { revalidateLandingPage } from "./hooks/revalidateLandingPage"
 import { ClientsGridBlock } from "@/payload/blocks/landing-page/clients-grid/config"
+import { ContactFormBlock } from "@/payload/blocks/common/contact-form/config"
 
 export const LandingPage: GlobalConfig<"landing-page"> = {
     slug: "landing-page",
@@ -38,6 +39,7 @@ export const LandingPage: GlobalConfig<"landing-page"> = {
                                 CallToActionBlock,
                                 ServicesGridBlock,
                                 ClientsGridBlock,
+                                ContactFormBlock,
                             ],
                             admin: {
                                 initCollapsed: true,

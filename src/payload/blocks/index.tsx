@@ -1,4 +1,5 @@
 import type { LandingPage } from "@/payload/payload-types"
+import ContactForm from "./common/contact-form/Component"
 import CallToAction from "./landing-page/call-to-action/Component"
 import ClientsGrid from "./landing-page/clients-grid/Component"
 import ContentWithImage from "./landing-page/content-with-image/Component"
@@ -12,6 +13,7 @@ const BLOCK_COMPONENTS = {
     "services-grid-block": ServicesGrid,
     "rich-text-block": HeroSlideshow,
     "clients-grid-block": ClientsGrid,
+    "contact-form-block": ContactForm,
 }
 
 export default function Blocks({ blocks }: { blocks: LandingPage["layout"][0][] }) {

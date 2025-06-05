@@ -2202,7 +2202,14 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface LandingPage {
   id: number;
-  layout: (HeroSlideshowBlock | ContentWithImageBlock | CallToActionBlock | ServicesGridBlock | ClientsGridBlock)[];
+  layout: (
+    | HeroSlideshowBlock
+    | ContentWithImageBlock
+    | CallToActionBlock
+    | ServicesGridBlock
+    | ClientsGridBlock
+    | ContactFormBlock
+  )[];
   meta?: {
     title?: string | null;
     /**
@@ -2424,6 +2431,65 @@ export interface ClientsGridBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContactFormBlock".
+ */
+export interface ContactFormBlock {
+  eyebrow?: string | null;
+  heading: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  sideContent?:
+    | {
+        heading: string;
+        content?:
+          | (
+              | RichTextBlock
+              | {
+                  links: {
+                    link: {
+                      type?: ('reference' | 'custom') | null;
+                      newTab?: boolean | null;
+                      reference?:
+                        | ({
+                            relationTo: 'pages';
+                            value: number | Page;
+                          } | null)
+                        | ({
+                            relationTo: 'projects';
+                            value: number | Project;
+                          } | null);
+                      url?: string | null;
+                      label: string;
+                    };
+                    id?: string | null;
+                  }[];
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'link-list-block';
+                }
+            )[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'contact-form-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header".
  */
 export interface Header {
@@ -2498,6 +2564,7 @@ export interface LandingPageSelect<T extends boolean = true> {
         'call-to-action-block'?: T | CallToActionBlockSelect<T>;
         'services-grid-block'?: T | ServicesGridBlockSelect<T>;
         'clients-grid-block'?: T | ClientsGridBlockSelect<T>;
+        'contact-form-block'?: T | ContactFormBlockSelect<T>;
       };
   meta?:
     | T
@@ -2603,6 +2670,47 @@ export interface ClientsGridBlockSelect<T extends boolean = true> {
   heading?: T;
   content?: T;
   clients?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContactFormBlock_select".
+ */
+export interface ContactFormBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  heading?: T;
+  sideContent?:
+    | T
+    | {
+        heading?: T;
+        content?:
+          | T
+          | {
+              'rich-text-block'?: T | RichTextBlockSelect<T>;
+              'link-list-block'?:
+                | T
+                | {
+                    links?:
+                      | T
+                      | {
+                          link?:
+                            | T
+                            | {
+                                type?: T;
+                                newTab?: T;
+                                reference?: T;
+                                url?: T;
+                                label?: T;
+                              };
+                          id?: T;
+                        };
+                    id?: T;
+                    blockName?: T;
+                  };
+            };
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
