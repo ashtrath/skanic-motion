@@ -11,6 +11,7 @@ import { Media } from "./collections/Media"
 import { Pages } from "./collections/Pages"
 import { Projects } from "./collections/Projects"
 import { Services } from "./collections/Services"
+import { FormSubmission } from "./collections/FormSubmission"
 import { Users } from "./collections/Users"
 import { editor } from "./config/editor"
 import { plugins } from "./config/plugins"
@@ -29,7 +30,7 @@ export default buildConfig({
         },
     },
     globals: [LandingPage, Header],
-    collections: [Users, Media, Pages, Clients, Categories, Projects, Services],
+    collections: [Users, Media, Pages, Clients, Categories, Projects, Services, FormSubmission],
     secret: process.env.PAYLOAD_SECRET || " ",
     typescript: {
         outputFile: path.resolve(dirname, "payload-types.ts"),

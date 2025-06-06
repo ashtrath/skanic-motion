@@ -2,6 +2,7 @@ import { Inter as InterGoogle, Rubik as RubikGoogle } from "next/font/google"
 import type React from "react"
 
 import "./global.css"
+import { Toaster } from "@/components/ui/Sonner"
 import { cn } from "@/lib/utils/cn"
 import Header from "@/payload/globals/header/component"
 
@@ -27,6 +28,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <body className="min-h-[100dvh] bg-background text-foreground">
                 <Header />
                 <main>{children}</main>
+                <Toaster position="top-right" richColors />
             </body>
         </html>
     )

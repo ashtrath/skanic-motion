@@ -2,9 +2,9 @@
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Loader, Send } from "lucide-react"
-import { useForm } from "react-hook-form"
+import { type SubmitHandler, useForm } from "react-hook-form"
+import { toast } from "sonner"
 import { z } from "zod"
-
 import { Button } from "@/components/ui/Button"
 import {
     Form,
@@ -21,15 +21,16 @@ const contactFormSchema = z.object({
     name: z.string().min(1, "Name is required"),
     email: z.string().email("Invalid email address"),
     subject: z.string().min(1, "Subject is required"),
-    message: z.string().optional(),
+    message: z.string(),
 })
 
-type ContactFormData = z.infer<typeof contactFormSchema>
+type ContactFormType = z.infer<typeof contactFormSchema>
 
 export default function ContactFormClient() {
-    const form = useForm<ContactFormData>({
+    const form = useForm({
+        // @ts-ignore
         resolver: zodResolver(contactFormSchema),
-        reValidateMode: "onBlur",
+        mode: "onBlur",
         defaultValues: {
             name: "",
             email: "",
@@ -39,11 +40,37 @@ export default function ContactFormClient() {
     })
     const isSubmitting = form.formState.isSubmitting
 
-    const onSubmit = async (values: ContactFormData) => {
-        await new Promise((resolve) => setTimeout(resolve, 5000))
+    const onSubmit: SubmitHandler<ContactFormType> = async (values) => {
+        try {
+            const response = await fetch(
+                `${process.env.NEXT_PUBLIC_SERVER_URL}/api/form-submission`,
+                {
+                    method: "POST",
+                    credentials: "omit",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        name: values.name,
+                        email: values.email,
+                        subject: values.subject,
+                        message: values.message,
+                    }),
+                },
+            )
 
-        console.log(values)
-        form.reset()
+            if (!response.ok) {
+                const errorData = await response.json()
+                toast.error(`Submission failed: ${errorData.message || "Unknown error"}`)
+                throw new Error(errorData.message || `HTTP error! status: ${response.status}`)
+            }
+
+            form.reset()
+            toast.success("Your message has been sent successfully!")
+        } catch (error) {
+            console.error("Submission failed:", error)
+            toast.error("There was an error submitting your form. Please try again later.")
+        }
     }
 
     return (
