@@ -11,27 +11,27 @@ export const FormSubmission: CollectionConfig<"form-submission"> = {
     admin: {
         group: "Portfolio",
         useAsTitle: "subject",
-        defaultColumns: ["subject", "name", "email","createdAt"],
+        defaultColumns: ["subject", "name", "email", "createdAt"],
     },
     fields: [
         {
             name: "name",
             type: "text",
-            required: true
+            required: true,
         },
         {
             name: "email",
             type: "email",
-            required: true
+            required: true,
         },
         {
             name: "subject",
             type: "text",
-            required: true
+            required: true,
         },
         {
             name: "message",
             type: "textarea",
-        }
+        },
     ],
 }

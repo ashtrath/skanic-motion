@@ -1,5 +1,5 @@
-import { InlineLexicalField } from "@/payload/fields/inline-lexical";
-import { Block } from "payload";
+import { InlineLexicalField } from "@/payload/fields/inline-lexical"
+import type { Block } from "payload"
 
 export const ClientsGridBlock: Block = {
     slug: "clients-grid-block",
@@ -17,7 +17,7 @@ export const ClientsGridBlock: Block = {
         },
         {
             name: "clients",
-            type:"relationship",
+            type: "relationship",
             relationTo: "clients",
             hasMany: true,
             minRows: 2,

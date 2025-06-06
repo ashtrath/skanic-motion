@@ -1,8 +1,8 @@
-import type { Block } from "payload";
+import type { Block } from "payload"
 
-import { InlineLexicalField } from "@/payload/fields/inline-lexical";
-import { LinkListBlock } from "../LinkListBlock";
-import { RichTextBlock } from "../RichTextBlock";
+import { InlineLexicalField } from "@/payload/fields/inline-lexical"
+import { LinkListBlock } from "../LinkListBlock"
+import { RichTextBlock } from "../RichTextBlock"
 
 export const ContactFormBlock: Block = {
     slug: "contact-form-block",
@@ -34,5 +34,5 @@ export const ContactFormBlock: Block = {
                 initCollapsed: true,
             },
         },
-    ]
+    ],
 }

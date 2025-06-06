@@ -3,7 +3,7 @@ import type { NextConfig } from "next"
 
 import redirects from "@/lib/utils/redirects"
 
-const NEXT_PUBLIC_SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
+const NEXT_PUBLIC_SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000"
 
 const nextConfig: NextConfig = {
     images: {
@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
 
                 return {
                     hostname: url.hostname,
-                    protocol: url.protocol.replace(':', '') as 'http' | 'https',
+                    protocol: url.protocol.replace(":", "") as "http" | "https",
                 }
             }),
         ],

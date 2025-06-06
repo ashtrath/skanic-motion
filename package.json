@@ -65,8 +65,6 @@
         "pnpm": "^9 || ^10"
     },
     "pnpm": {
-        "onlyBuiltDependencies": [
-            "sharp"
-        ]
+        "onlyBuiltDependencies": ["sharp"]
     }
 }
