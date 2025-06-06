@@ -3,6 +3,7 @@ import type { GlobalConfig } from "payload"
 import { LinkListBlock } from "@/payload/blocks/common/LinkListBlock"
 import { RichTextBlock } from "@/payload/blocks/common/RichTextBlock"
 import { LinkGroupField } from "@/payload/fields/link/LinkGroup"
+import { revalidateHeader } from "./hooks/revalidateHeader"
 
 export const Header: GlobalConfig<"header"> = {
     slug: "header",
@@ -33,4 +34,7 @@ export const Header: GlobalConfig<"header"> = {
             },
         },
     ],
+    hooks: {
+        afterChange: [revalidateHeader]
+    }
 }
