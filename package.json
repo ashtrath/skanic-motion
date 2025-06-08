@@ -18,12 +18,12 @@
     "dependencies": {
         "@hookform/resolvers": "^5.0.1",
         "@icons-pack/react-simple-icons": "^12.8.0",
-        "@payloadcms/db-postgres": "3.39.1",
-        "@payloadcms/next": "3.39.1",
-        "@payloadcms/payload-cloud": "3.39.1",
-        "@payloadcms/plugin-seo": "3.39.1",
-        "@payloadcms/richtext-lexical": "3.39.1",
-        "@payloadcms/ui": "3.39.1",
+        "@payloadcms/db-postgres": "3.41.0",
+        "@payloadcms/next": "3.41.0",
+        "@payloadcms/payload-cloud": "3.41.0",
+        "@payloadcms/plugin-seo": "3.41.0",
+        "@payloadcms/richtext-lexical": "3.41.0",
+        "@payloadcms/ui": "3.41.0",
         "@radix-ui/react-label": "^2.1.7",
         "@radix-ui/react-slot": "^1.2.2",
         "@tailwindcss/postcss": "^4.1.6",
@@ -36,7 +36,7 @@
         "lucide-static": "^0.511.0",
         "motion": "^12.12.1",
         "next": "15.3.0",
-        "payload": "3.39.1",
+        "payload": "3.41.0",
         "payload-blurhash-plugin": "^3.1.0",
         "postcss": "^8.5.3",
         "react": "19.1.0",
@@ -65,6 +65,8 @@
         "pnpm": "^9 || ^10"
     },
     "pnpm": {
-        "onlyBuiltDependencies": ["sharp"]
+        "onlyBuiltDependencies": [
+            "sharp"
+        ]
     }
 }
